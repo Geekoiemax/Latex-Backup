@@ -1,0 +1,6 @@
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Why? }{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Points of interest}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Geography}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Goal}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Grid}{4}{section.2.2}%

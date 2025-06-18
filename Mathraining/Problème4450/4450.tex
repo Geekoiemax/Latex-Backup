@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts} %pour les maths
+\usepackage{tikz,ifthen,tikz-3dplot} %outil pour les schemas
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+%GEOMETRY
+\usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in,heightrounded]{geometry}
+%line height
+\renewcommand{\baselinestretch}{1.15}
+%paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\title{Problème 4450}
+\author{Maxime Muller}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+Montrons que \(\forall n \in \mathbb{N}, P_n : a_n \leq \frac{1}{n(n+1)}\)\\
+
+Pour \(n=1\) : \(a_1 = \frac{1}{2}\leq \frac{1}{2}\)\\
+
+Pour \(n=2\) : \(a_2 = \frac{1}{2}\cdot \frac{2\cdot 2-3}{2\cdot 2}\leq \frac{1}{2\cdot 3}\)\\
+Pour \(n\geq 3\), On procède par récurrence, l'initialisation étant
+
+Soit \(n\in \mathbb{N} \text{ tq } P_{n-1}\). Montrons que \(P_n\)
+
+\begin{align*}
+    a_n \leq \frac{1}{n(n+1)} &\Leftrightarrow a_{n-1} \cdot \frac{2n-3}{2n}\leq_1\\
+    &\Leftrightarrow \frac{n(n+1)(2n-3)}{2n} \cdot a_{n-1} \leq 1\\
+    &\Leftrightarrow \frac{(n+1)(2n-3)}{2} a_{n-1} \leq 1\\
+    &\Leftrightarrow a_{n-1} \leq \frac{2}{(n+1)(2n-3)}
+\end{align*}
+Etudions le signe de \(\frac{1}{n(n-1)} - \frac{2}{(n+1)(2n-3)}\).\\
+\begin{align*}
+    \frac{1}{n(n-1)} - \frac{2}{(n+1)(2n-3)} &= \frac{(n+1)(2n-3)-2n(n-1)}{n(n-1)(2n-3)(n+1)} \\
+    &= \frac{n-3}{n(n-1)(2n-3)(n+1)} \\
+\end{align*}
+
+Or : \(\forall n \in \mathbb{N}, n\geq 3, n(n-1)(2n-3)(n+1)\geq 0 \text{ et } n-3\geq 0 \)\\
+D'où : \(a_{n-1} \leq \frac{1}{n(n-1)} \Leftrightarrow a_n \leq \frac{1}{n(n+1)}\)\\
+Donc par récurrence, \(\forall n \in \mathbb{N}^{*}, a_n \leq \frac{1}{n(n+1)}\)
+
+On a: \(\sum_{k=1}^{n} \frac{1}{n(n+1)} = \sum_{k=1}^{n} \frac{1}{n}-\frac{1}{n+1} = 1-\frac{1}{n+1}\)
+D'où \(\sum_{k=1}^{n} a_n \leq \sum_{k=1}^{n} \frac{1}{n(n+1)}\)\\
+\(\Leftrightarrow \sum_{k=1}^{n} a_n \leq 1 - \frac{1}{n+1} < 1\)
+\end{document}

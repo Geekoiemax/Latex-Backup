@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\input{header.tex}
+\input{ListStyle.tex}
+
+\author{Maxime Muller}
+\newcommand{\Instuition}{Lycée St-Louis de Gonzague}
+\newcommand{\SeasonYear}{2025}
+\newcommand{\Course}{Historical analysis}
+\newcommand{\Title}{The Spiderweb Society}
+\newcommand{\Group}{Me}
+\newcommand{\NetID}{}
+\newcommand{\Instructor}{}
+\newcommand{\DueDate}{\DTMdisplaydate{2025}{8}{1}}
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\clearpage\maketitle
+\thispagestyle{empty}
+
+\newpage
+\setcounter{page}{1}
+%----------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+\subsection{Why? }
+Today, the world is built based on a paradigm.\todo{Find the paradigm\\or reach out to Mr. Jones} A key part of this paradigm is that as society grows, we need leaders to bring together the opinions. Instead, we could do as bees do and follow their paradigm. \par
+When bee colonies grow too big, rather than keeping the whole as a big group and hierarchising, creating leaders of our leaders and complexifiying systems, keep the small groups. We could split up creating two groups of comparable size, where in each group everyone knows each other and decisions can be taken with everyone giving their voice. \par
+This limits the size of anyone society to how many people a person can know at one time according to \todo{Find the name of number} number, that number is 180 people. Thus, society splits into interacting groups of 90 people. This is chosen to be half of Dunbar's Number so that relationships are split equally between online relationships and IRL relationships. At any one point in time, there would ideally be 60 people originally from the unit and 30 travellers from other units. This is to ensur continuous mixing between communities and to avoid isolationism and extremism. \par
+\begin{definition}[Divisions of society]\label{def:divisions}
+    Before studying the consequences of such a social reorganisation, it is important to define certain terms :
+    \begin{itemize}
+        \item The Spiderweb : the name of the reorginisation.
+        \item Unit : a unit is the smallest subdivision of the Spiderweb, containing around 90 people at any one point.
+        \item Community of a Unit : a Unit and all of its neighbors.
+    \end{itemize}
+\end{definition}
+
+\subsection{Points of interest}
+As a consequence of this reorganisation of society, there are a few key areas that need reimagining : 
+\begin{itemize}
+    \item Economics : How does money and trade work, inside of Units and between them? How does one build currency.
+    \item Politics : how are decisions made? 
+    \item Education : how to transmit knowledge to the next generations and what to transmit
+    \item Transportation : how to assure mobility between the different units
+    \item Ecology : how to avoid climate crises such as the one we face today.
+    \item Geography : How are Units organised around the world.
+    \item Job specialisation : how is job specialisation assured and how are people conpensated for labor.
+    \item The new internet : how to structure a web within the web in ways that are secure to allow efficient decision making and access to knowledge.  
+\end{itemize}
+
+\section{Geography}
+\subsection{Goal}
+The goal of this section is to assure as equal a distribution of resources and to assure survival and maximise chances of prosperity for all Units. Thus each unit needs enough resources to accomodate 180 people, the maximum capacity according to BLANK number. We also want to encourage cooperation between Units so we look to maximise connections between units. 
+\subsection{The Grid}
+To assure this distribution, we start from the ideal case, where the entire world has a constant distribution of resources at any point. 
+We thus look to define a grid following these criteria. The grid should be infinitely repeating, and should look to maximise the number of neighbors any node on the grid has.
+The first solution that comes to mind is the habitual square grid. It is easy to work with and offers four neighbors per unit. 
+However, there is a better grid, the triangular grid. While this grid is harder to define and thus to manipulate, it offers more neighbors per unit, thus fulfiling the goal of maximising cooperation. 
+\begin{definition}[Triangular Grid]\label{def:tgrid}
+    We define the triangular grid in the following fashion : \\
+    Let \(\mathbb{R}^{2} = (O;\vec{i};\vec{j})\) be the cartesian plane. We shall define our triangular plane by taking of subset of points \(T \subset \mathbb{R}^{2}\).\\
+    \[
+        M(x;y) \in T \iff \begin{cases}
+            2|\frac{y\sqrt{3}}{3} \implies x \in \mathbb{Z}\\
+            \text{or}\\
+            2| \frac{y\sqrt{3}}{3} + 1 \implies x +\frac{1}{2} \in \mathbb{Z}
+        \end{cases}
+    \]  
+\end{definition}
+
+The triangular grid can be visualised
+\end{document}

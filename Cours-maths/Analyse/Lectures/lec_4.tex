@@ -1,0 +1,49 @@
+\newpage
+\section{Intégrales et primitives}
+
+\begin{theorem}[Théorème fondamentale]
+    Soit \(f \in C^{0}(I \subset \mathbb{R}, \mathbb{R})\), soit \(a \in I\). \(F \longmapsto \int_{a}^{x} f(t) dt\) est dérivable sur \(I\) et \(F'(x) = f(x)\).
+\end{theorem}
+
+\begin{explanation}
+    Soit \(f \in C^{0}(I, \mathbb{R}^{+})\), \(f\) croissante. Soit \(a \in \mathbb{R}\), soit  \(F : x \mapsto \int_{a}^{x} f(x) dx\). \par
+    Montrons que \(F'(x) = f(x)\). \par
+    Soit \(h \in \mathbb{R}^{*}_{+}\) 
+    \[
+        F(x+h) - F(x) = \int_{x}^{x+h} f(x) dx
+    \]
+    On peut donc l'encadrer avec deux rectangles, \(hf(x)\) et \(hf(x+h)\). D'où : 
+    \[
+        f(x) \leq \frac{F(x+h) -  F(x)}{h} \leq f(x+h)
+    \]   
+    On fait tendre \(h\) vers 0. D'après le théorème des gendarmes, il existe bien une limite pour \(\frac{F(x+h) -  F(x)}{h}\) et : 
+    \(\lim_{h \to 0^{+}}(\frac{F(x+h) -  F(x)}{h}) = f(x)\). 
+    On montre le même résultat pour \(h \in \mathbb{R}^{*}_{-}\). On peut donc conclure : 
+    \[
+        \lim_{h \to 0} \frac{F(x+h) -  F(x)}{h} = F'(x) = f(x) \,\square
+    \]  
+\end{explanation}
+
+\begin{remark}[Activité]
+    \begin{itemize}
+        \item Si \(h \in \mathbb{R}_{0}^{-}\), rien ne change.\par
+        \item Le théorème des gendarmes démontre aussi \underline{l'existence de la limite}. 
+        \item On a bien \( \int_{a}^{a} f(x) dx =0\) 
+    \end{itemize}  
+\end{remark}
+
+\begin{corollary}[Existence de la primitive ]
+    Si \(f \in C^{0}\), \(f\) admet des primitives 
+\end{corollary}
+
+\begin{corollary}[Calcul d'intégrales]
+    Soit \(f \in C^{0}(I, \mathbb{R})\), soit \((a;b) \in \mathbb{R}^{2}\). 
+    \[
+        \int_{a}^{b} f(x)  dx = F(b)-F(a)
+    \]  
+    \begin{notation}
+        \[
+            \int_{a}^{b} f(x) dx = \left[ F(x) \right]^{b}_{a} = F(b)-F(a)
+        \]
+    \end{notation}
+\end{corollary}

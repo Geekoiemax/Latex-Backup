@@ -1,0 +1,28 @@
+
+    Si : \(f_{1} \in FPR_{k}, \dots, f_{n} \in FPR_{k}\) et \(g \in FPR_{k}\), Alors \(\begin{align*}
+            h: \mathbb{N}^{k} &\longrightarrow \mathbb{N} \\
+            x_{1},\dots,x_{n} &\longmapsto g(f_{1}((x_{1},\dots,x_{k})), \dots, f_{n}(x_{1},\dots,x_{k})) 
+    \end{align*}\), on a \(h \in FPR_{k}\)\\ 
+    "Recursion" :\\
+    Si \(f \in FPR_{n}\) et \(g \in FPR_{n+2}\), alors on définit : \\
+    \begin{eqnarray*}
+        h : \mathbb{N}^{n+1} &\longrightarrow \mathbb{N} \\
+        (x_{1},\dots, x_{n}, y) \longmapsto \begin{cases}
+            f(x_{1},\dots, x_{n}) \text{ si } y=0\\
+            g(x_{1},\dots,x_{n}, h(x_{1},\dots,x_{n}, y-1),y) \text{ si } y \geq 1
+        \end{cases}
+    \end{eqnarray*}   
+\end{definition}
+
+\begin{eg}[MQ \(add \in FPR_{2}\) ]\label{eg:add }
+    Trouver \(f\) et \(g\). On a avec la récursion, \(n=1 \to \) \(f\) est d'arité \(1\) et \(g\) est d'arité \(3\). \\
+    On prend : \(f = Id = \Pi^{1}_{1}\) et \(g = Succ \circ \Pi^{3}_{2}\).
+    On a donc :\\
+    \begin{eqnarray*}
+        h : \mathbb{N}^{2} &\to \mathbb{N} \\
+        x,y \mapsto \begin{cases}
+        f(x) \iff y=0\\
+
+        \end{cases}
+    \end{eqnarray*}  
+\end{eg}

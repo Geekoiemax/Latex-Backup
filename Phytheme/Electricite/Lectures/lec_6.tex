@@ -1,0 +1,67 @@
+\section{Filtre du deuxième ordre}
+\subsection{Passe bas du 2nd ordre}
+%SCHEMA
+
+\subsubsection{Etude asymptotique}
+
+A basse fréquence, un condensateur est équivalent à un interrupteur ouvert et la bobine est équivalente à un fil passant. A haute fréquence, on a l'opposé. \par
+A basse fréquence \(s(t) \neq 0\) et à haute fréquence, \(s(t) = 0\). \par
+On cherche la fonction de tranfert  : 
+\[
+    \underline{e}(t) = \underline{H}(j \omega) \underline{s}(t)
+\] 
+
+On a un pont diviseur de tension : 
+\[
+    \underline{H}(j \pi) = \frac{\underline{Z}_{c}}{\underline{Z}_{R} + \underline{Z}_{L} + \underline{Z}_{C}}
+\]
+\begin{eqnarray*}
+    \underline{H}(j \omega) &=& \frac{\frac{1}{jc \omega}}{R + Lj \omega + \frac{1}{jc \omega}}\\
+    &=& \frac{1}{1+jRc \omega - Lc \omega^{2}}
+\end{eqnarray*}
+On cherche la forme canocique, on pose : \( \omega_{\text{0}}^{2} = \frac{1}{LC}\) et \(\frac{1}{Q\omega_{\text{0}}} = RC \implies Q = \frac{1}{RC \omega_{\text{0}}} = \frac{1}{R}\sqrt{\frac{L}{C}}\) . On a donc : 
+\[
+    H(j \omega) = \frac{1}{1 - \frac{\omega^{2}}{\omega_{\text{0}}^{2}} + j \frac{\omega}{\omega_{\text{0}}Q}}
+\]
+
+\[
+    \implies G = \lvert H(j \omega) \rvert = \frac{1}{\sqrt{(1-\frac{\omega^{2}}{\omega_{\text{0}}^{2}})^{2} + \frac{\omega}{\omega_{\text{0}}Q}}} 
+\]
+
+\[
+    \implies G_{dB} = 20 \log G = -10\log \left[ (1-\frac{\omega^{2}}{\omega_{\text{0}}^{2}})^{2} + \frac{\omega}{\omega_{\text{0}}Q}  \right]
+\]
+
+A basse fréquence : 
+\[
+    \omega \to  0 \implies G_{db} \to 0
+\]
+
+A haute fréquence : 
+\[
+    \omega \to \infty \implies G_{dB} \approx -10 \log \left( \frac{\omega^{4}}{\omega_{\text{0}}^{4}} \right) \approx -40 \log \omega \implies \text{ Pente de 40 décibels par décade. } 
+\]
+
+Pour \(\omega = \omega_{\text{0}}\) : \(G_{dB} = 20 \log \left( Q \right)\)  
+
+%SCHEMA
+
+\subsubsection{Coupe bande du seconde ordre}
+
+Pour \(\omega \to  0 \) et \(\omega \to  \infty\), on a bien \(s \neq 0\). 
+\begin{eqnarray*}
+    \underline{H}(j \omega) &=& \frac{\underline{Z}_{c} + \underline{Z}_{L}}{\underline{Z}_{c} + \underline{Z}_{L} + \underline{Z}_{R}} \\
+    &=& \frac{jL \omega + \frac{1}{jc \omega}}{R + jL \omega + \frac{1}{jc \omega}} \\
+    &=& \frac{j \frac{L}{R} \omega + \frac{1}{jcR \omega}}{1+ j \frac{L}{R} \omega + \frac{1}{jRc \omega}}
+\end{eqnarray*}
+   
+On pose : \(\omega_{\text{0}} = \frac{1}{\sqrt{LC}}\) et \(Q = \frac{1}{R}\sqrt{\frac{L}{C}}\). Et on trouve : 
+\[
+    \frac{jQ(\frac{\omega_{\text{0}}}{\omega} - \frac{\omega_{\text{0}}}{\omega})}{1+ jQ(\frac{\omega_{\text{0}}}{\omega} - \frac{\omega_{\text{0}}}{\omega})}
+\]  
+D'où : 
+\begin{eqnarray*}
+    \implies G &=& \frac{\lvert Q(\frac{\omega}{\omega_{\text{0}}} - \frac{\omega_{\text{0}}}{\omega}) \rvert }{\sqrt{1+Q^{2}(\frac{\omega}{\omega_{\text{0}}}- \frac{\omega_{\text{0}}}{\omega})^{2}}} \\
+    \implies G_{dB} &=& 20 \log G \\
+    &=& 20\log \lvert Q(\frac{\omega}{\omega_{\text{0}}} - \frac{\omega_{\text{0}}}{\omega}) \rvert -10 \log \left[  1+Q^{2}(\frac{\omega}{\omega_{\text{0}}}- \frac{\omega_{\text{0}}}{\omega})^{2} \right]
+\end{eqnarray*}

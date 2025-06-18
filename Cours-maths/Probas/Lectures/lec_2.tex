@@ -1,0 +1,47 @@
+\chapter{Loi des grands nombres}
+\section{L'inégalité de Bienaymé-Tchebychev}
+\subsection{L'inégalité de Markov}
+
+\begin{definition}[Variable aléatoire positive ou nulle]
+    Une variable aléatoire est dite \textit{positive ou nulle} dans un univers \(\Omega\), lorsque toutes les valeurs prises par celles-ci sont des réels positifs ou nuls 
+\end{definition}
+
+\begin{theorem}[L'inégalité de Markov]
+    Soit \(X\) une variable aléatoire réelle positive ou nulle d'espérance \(E(X)\). Alors, pour tout réel \(a\) strictement positif, \(P(X\geq a)\leq \frac{E(X)}{a}\). Cette inégalité est appelée \textit{Inégalité de Markov}.
+\end{theorem}
+
+\subsection{L'inégalité de Bienaymé-Tchebychev}
+
+\begin{theorem}[Inégalité de Bienaymé-Tchebychev]
+    Soit \(X\) une variable aléatoire d'espérance \(E(X)\) et de variance \(V(X)\). Alors, pour tout réel \(a\) strictement positif, \(P(\lvert X-E(X) \rvert \geq a ) \leq \frac{V(X)}{a^{2}}\). Cette inégalité est appelée \textit{Bienaymé-Tchebychev} 
+\end{theorem}
+
+\begin{corollary}[Propriété]
+    On peut réécrire l'inégalité sous la forme suivante : 
+    \[
+        P(\lvert X-E(X) \rvert < a) \geq 1- \frac{V(X)}{a^{2}}
+    \]
+\end{corollary}
+
+\section{Loi des grands nombres}
+\subsection{L'inégalité de concentration}
+
+\begin{theorem}[L'inégalité de concentration]
+    Soit \(X\) une variable aléatoire. On pose \(M_{n}\) la variable aléatoire moyenne d'un échantillon de taille \(n\) de \(X\), \(M_{n} = \frac{1}{n} \sum_{i=1}^{n}X_{i}\) où les variables \(X_{i}\) sont indépendantes et de même loi que \(X\).\par
+    Alors, on a : 
+    \[
+        P(\lvert M_{n} - E(X) \rvert \geq a ) \leq \frac{V(X)}{na^{2}}
+    \]   
+    Cette inégalité est appelée \textit{inégalité de concentration}.
+\end{theorem} 
+
+\newpage
+\subsection{Loi faible des grands nombres}
+
+\begin{theorem}[Loi faible des grands nombres]
+    Soit \((X_{n})\) un échantillon d'une variable aléatoire. On pose \(M_{n} = \frac{1}{n} \sum_{i=1}^{n} X_{i}\). Alors, pour tout réel \(a\) strictement positif, on a : 
+    \[
+        \lim_{n \to \infty}P(\lvert M_{n} - E(X) \rvert \geq a ) = 0
+    \]  
+\end{theorem}
+

@@ -1,0 +1,69 @@
+\begin{definition}[Désintégration \(\alpha\) ]\label{def:arad}
+    Les noyaux lourds subissent un désintégration \(\alpha \). Ils se désintègre en émétant un noyaux d'hélium : 
+    \[
+        \ce{^{A}_{Z}X} \to \ce{^{A-2}_{Z-2}Y} + \ce{^{4}_{2}\alpha }
+    \] 
+\end{definition}
+
+\begin{definition}[Désintégration \(\beta^{-}\)]\label{def:bmrad}
+    Elle concerne les noyaux instables situés dans la zone rouge du document 5 p. 153. Ils contiennent trop de neutrons. 
+\[
+    \ce{^{A}_{Z}X} \to \ce{^{A}_{Z+1}Y} + \ce{^{0}_{-1}e}
+\]
+
+Dans le noyau, un neutron c'est transformé en un proton et un électron. 
+\end{definition}
+
+\begin{definition}[Désintégration \(\beta^{+}\) ]\label{def:bprad}
+    Elle concerne les noyaux instables situés dans la zone bleu du document 5 p. 153. Ils contiennent trop de protons. 
+    \[
+        \ce{^{A}_{Z}X} \to \ce{^{A}_{Z-1}Y} + \ce{^{0}_{1}e}
+    \]
+    Dans le noyau, un proton c'est transformé en un neutron et un positron. 
+\end{definition}
+
+\begin{definition}[Désexcitation \(\gamma\) ]\label{def:grad}
+    Les noyaux issus de réactions de désintégration sont en général obtenu dans un état excité. Le retour a l'état fondamental s'accompagne de l'émission d'un rayonnement \(\gamma\) de très courte longueur d'onde et très pénétrante. 
+\end{definition}
+
+\subsection{Bilan}
+%insérer schema%
+\section{Loi de décroissance radioactive}
+
+\begin{definition}[Activité d'un échantillon radioactif]\label{def:radact}
+    L'activité d'un échantillon est égale au nombre de désintégration qui se produisent par unité de temps dans cet échantillon : 
+\[
+    A(t) = -\frac{dN(t)}{dt}
+\]
+Avec \(A(t)\) l'activité en becquerel (1Bq = 1 désintégrations par seconde), et \(N(t)\) le nombre de noyaux radioactifs à l'instant t.
+\end{definition}
+
+\begin{definition}[Constante radioactive]\label{def:radcste}
+    L'activité d'un échantillon est proportionel au nombres de noyaux qu'il contient et dépend également du type de noyau. 
+    \[
+        A(t) = \lambda N(t) \text{ avec $\lambda$ la constante radioactive en s$^{-1}$}
+    \]
+\end{definition}
+
+\subsection{Décroissance exponentielle }
+On aboutit à l'équation différentielle suivante : 
+\[
+    \frac{d}{dt}\left[ N(t) \right] + \lambda N(t) = 0
+\]
+La solution générale est : \(N(t) =  \mu e^{-\lambda t}\). En notant la condition initale \(N(t =0) = N_{0}\), on obtient :
+\[
+    N(t) = N_{0}e^{-\lambda t}
+\]
+\pagebreak
+
+\subsection{Temps de demi vie radioactive}
+\begin{definition}[Temps de demi vie radioactive]
+    C'est la durée nécessaire pour que la moitié des noyaux radioactifs initialement présents se soient désintégrés (doc 12 et 13 p. 156)
+\end{definition}
+
+On a donc : 
+\begin{eqnarray*}
+    \frac{N_{0}}{2} &=& N_{0}e^{-\lambda t_{\frac{1}{2}}} \\
+    -\ln 2 &=& -\lambda t_{\frac{1}{2}}\\
+    t_{\frac{1}{2}} &=& \frac{\ln 2}{\lambda } 
+\end{eqnarray*}

@@ -1,0 +1,102 @@
+\chapter{Sommes de variables aléatoires}
+\section{Sommes de variables aléatoires}
+
+\begin{definition}[Variable aléatoire]
+    Une variable aléatoire \(X\) définie sur l'univers \(\Omega \) est une fonction définie sur \(\Omega \) à valeurs dans \(\mathbb{R}\). On a donc : \begin{align*}
+        X: \Omega  &\longrightarrow \mathbb{R} \\
+        \omega  &\longmapsto X(\omega )
+    \end{align*}   
+\end{definition}
+
+\begin{definition}[Produit avec un scalaire]
+    Soit \(X\) une variable aléatoire définie sur \(\Omega \) et \(a\) un réel. On peut définir une variable aléatoire \(Y\) telle que : 
+    \[
+        \forall \omega \in \Omega, Y(\omega) = a X(\omega)
+    \] 
+    On note, \(Y = aX\) 
+\end{definition}
+
+\begin{definition}[Sommes de variables aléatoires]
+    Soient \(X\) et \(Y\) deux variables aléatoires définies sur \(\Omega \). On peut définir \(Z\) sur \(\Omega \) tel que : 
+    \[
+        \forall \omega  \in \Omega, Z(\omega ) = X(\omega ) + Y(\omega )
+    \]  
+    \(Z\) est appelée \textbf{somme des variables aléatoires \(X\) et \(Y\)}. On note \(Z = X+Y\).
+\end{definition}
+
+\section{Espérance et variance d'une somme de variables aléatoires}
+Dans cette partie, on considère une variable aléatoire \(X\) définie sur \(\Omega  = \left\{  \omega_{1},\dots,\omega_{r}\right\}\) et on note \({x_{1},\dots,x_{s}}\) l'ensemble des valeurs prises par \(X\) avec \(s\) et \(r\) des entiers naturels non nuls.
+
+\subsection{Espérance de la somme}
+
+\begin{lemma}[Espérance]
+    On a : 
+    \[
+        E(X) = \sum_{j=1}^{r}X(\omega _{j})P({\omega_{j}})
+    \]
+\end{lemma} 
+
+\begin{corollary}[Linéarité de l'espérance]
+    Soient \(X\) et \(Y\) deux variables aléatoires, soit \(a\) un réel. On a : 
+    \[
+        E(aX+Y) = aE(X) + E(Y )
+    \]
+\end{corollary}
+
+\subsection{Variance de la somme}
+
+\begin{corollary}[Multiplication par une scalaire]
+    Soit \(X\) une variable aléatoire définie sur \(\Omega \) de variance \(V(X)\). Soit \(a\) un réel. On a :
+    \[
+        V(aX) = a^{2}V(X)
+    \] 
+\end{corollary}
+
+\begin{definition}[Indépendance]
+    Soit \(X_{1},\dots,X_{n}\) \(n\) variables aléatoires à valeurs dans \(E_{1},\dots,E_{n} \subset \Omega \). On dit que \(X_{1},\dots,X_{n}\) sont indépendantes lorsque : 
+    \[
+        \forall (x_{1},\dots,x_{n}) \in E_{1} \times \dots \times E_{n}, P(X_{1} = x_{1} \cap \dots \cap X_{n} = x_{n}) = \prod_{i=1}^{n} (P(X_{i} = x_{i}))
+    \]  
+\end{definition}
+
+\begin{corollary}[Variance de la somme]
+    Soient \(X\) et \(Y\) deux variables aléatoires indépendantes définies sur \(\Omega \), alors : 
+    \[
+        V(X+Y) = V(X)+V(Y)
+    \] 
+\end{corollary}
+
+\section{Applications}
+\subsection{Applications à la loi binomiale}
+
+\begin{definition}[Distribution identique]
+    Deux variavles sont dites \textbf{identiquement distribuées} lorsqu'elles suivent la même loi de probabilité.
+\end{definition}
+
+\begin{corollary}[loi Binomiale]
+    Toute variable aléatoire peut s'écrire comme la somme de variables aléatoires de Bernoulli indépendantes et identiquements distribuées.
+\end{corollary}
+
+\begin{corollary}[Propriétés de la loi de Bernoulli]
+    Soit \(X\) une variable aléatoire suivant une loi de Bernoulli de paramètres \(n \) et \(p\), alors : 
+    \begin{itemize}
+        \item \(E(X) = np\)
+        \item \(V(X) = np(1-p)\) 
+        \item \(\sigma(X) = \sqrt{np(1-p)}\) 
+    \end{itemize}
+\end{corollary}
+
+\subsection{Echantillons de \(n\) variables aléatoires identiques et indépendantes}
+
+On considère un entier naturel non nul \(n\) et \(X_{1};\dots;X_{n}\) \(n\) variables aléatoires définies sur \(\Omega \) supposées indépendantes et identiquement distribuées. On note \(S_{n}\) la somme des variables aléatoires (\(S_{n} = \sum_{k=1}^{n}X_{n}\)) et \(M_{n }\) leur moyenne arithmétique (\(M_{n} = \frac{1}{n}S_{n}\)).
+\begin{corollary}[Espérance et Variance de la somme]
+    \[
+        \forall k \in {1;\dots;n}, E(S_{n}) = nE(X_{k}), V(S_{n}) = nV(X_{k}), \sigma(X_{k}) = \sqrt{n}\sigma(X_{k})
+    \]
+\end{corollary}
+
+\begin{corollary}[Espérance et Variance de la moyenne]
+    \[
+        \forall k \in {1;\dots;n}, E(M_{n}) = E(X_{k}), V(M_{n}) = \frac{1}{n}V(X_{k}), \sigma(M_{n}) = \frac{1}{\sqrt{n}} \sigma(X_{k})
+    \]
+\end{corollary}

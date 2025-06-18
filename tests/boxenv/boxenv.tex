@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts} %pour les maths
+\usepackage{tikz,ifthen,tikz-3dplot} %outil pour les schemas
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+%GEOMETRY
+\usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in,heightrounded]{geometry}
+%line height
+\renewcommand{\baselinestretch}{1.15}
+%paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\usepackage{tcolorbox} % for creating boxed environments
+
+% Redefine the 'box' environment to handle math and text modes
+\newenvironment{boxenv}
+{
+    \begin{tcolorbox}[colframe=black, colback=white, sharp corners=southwest, boxrule=0.5mm, before=\leavevmode]
+    \ifmmode % Check if in math mode
+        \let\oldmathstyle\displaystyle
+        \renewcommand{\displaystyle}{\oldmathstyle\boxed} % Use \boxed for math content
+    \else
+        \bgroup
+    \fi
+}
+{
+    \ifmmode
+        \renewcommand{\displaystyle}{\oldmathstyle} % Restore original math style
+    \else
+        \egroup
+    \fi
+    \end{tcolorbox}
+}
+
+\title{creating a box environnement}
+\author{Maxime Muller}
+\date{\today}
+
+\begin{document}
+
+    \begin{boxenv}
+        \begin{align*}
+            f: D_f &\longrightarrow \mathbb{R} \\
+            x &\longmapsto f(x) = \ln x
+        \end{align*}
+    \end{boxenv}
+
+    \begin{equation*}
+        \begin{boxenv}
+            f(x) = \ln x
+        \end{boxenv}
+    \end{equation*}
+
+\end{document}

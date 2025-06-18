@@ -1,0 +1,531 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts} %pour les maths
+\usepackage{tikz,ifthen} %outil pour les schemas
+\usepackage{tikz-3dplot} %3D plotting
+\tdplotsetmaincoords{0}{0} % Set default 3D plot view angles
+\usepackage{pgfplots}
+\usepackage{comment}
+\pgfplotsset{compat=1.18}
+    
+%GEOMETRY
+\usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in,heightrounded]{geometry}
+%line height
+
+
+
+
+\title{Compléments de cinématique}
+\author{Maxime Muller}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+Ceci est une transcription des cours de cinématique Newtonienne donné par le professeur Xavier Ovido au lycée St Louis de Gonzague dans le cadre du club Phythème.
+\section{Différents systèmes de coordonnées}
+\subsection{Coordonnées cartésiennes}
+%dessin 1 (voir onenote)
+
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}
+    [axis/.style={->,black,very thick},
+    vector/.style={->,black,thick},
+    dotline/.style={-,gray,very thick,dashed},
+    line/.style={-,black,thick}
+    ]
+        
+%draw the axes
+\draw[axis] (0,0,0) -- (5,0,0) node[anchor=west]{x};
+\draw[axis] (0,0,0) -- (0,5,0) node[anchor=west]{z};
+\draw[axis] (0,0,0) -- (0,0,5) node[anchor=west]{y};
+
+\draw[dotline] (0,4,0) -- (3,3,0) node[right]{$M$};
+\draw[dotline] (3,3,0) -- (3,-1,0) node[right]{};
+\draw[dotline] (3,-1,0) -- (0,0,0) node[right]{};
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{eqnarray*}
+    \vec{OM} &=& x\vec{i} + y\vec{j} + z\vec{k},\\
+    \boxed{d\vec{OM} &=& dx\space\vec{i} + dy\space\vec{j} + dz\space\vec{k}},\\
+    \text{(Déplacement élémentaire)} 
+\end{eqnarray*}
+\end{minipage}
+
+\subsection{Coordonnées cylindro-polaires}
+\subsubsection{Coordonnées polaires}
+%schema 2
+
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[tdplot_main_coords,
+    axis/.style={->,black,very thick},
+    vector/.style={->,gray,thick},
+    dotline/.style={-,gray,thick,dashed},
+    line/.style={-,black,thick}]
+        
+%draw the axes
+\draw[axis] (0,0,0) -- (5,0,0) node[anchor=west]{x};
+\draw[axis] (0,0,0) -- (0,5,0) node[anchor=west]{y};
+\draw[vector] (0,0,0) -- (0,1,0) node[anchor=north west]{$\vec{i}  $};
+\draw[vector] (0,0,0) -- (1,0,0) node[anchor=north west]{$\vec{j}$};
+
+\coordinate (M) at (4,4,0);
+\draw[line] (0,0,0) -- (M) node[midway, above right, sloped]{$r = \|\vec{OM}\|$};
+\node[above] at (M) {M};
+
+% Set up the 3D coordinate system
+\coordinate (Shift) at (2,2,0); % Define the Shift coordinate
+\tdplotsetrotatedcoordsorigin{(Shift)}
+\coordinate (M_shifted_utheta) at ($(M)+(-0.707,0.707,0)$);
+\draw[vector,tdplot_rotated_coords] (M) -- (M_shifted_utheta) node[anchor=south]{$\vec{u}_\theta$};
+\coordinate (M_shifted_utheta) at ($(M)+(1,0,0)$);
+\coordinate (M_shifted_ur) at ($(M)+(0.707,0.707,0)$); % Corrected M_shifted_ur
+\draw[vector] (M) -- (M_shifted_ur) node[anchor=north west]{$\vec{u}_r$};
+% Draw the arc between the X axis and OM
+\draw[->] (1,0) arc[start angle=0, end angle=45, radius=1, color=gray] node[midway, above right]{$\theta$};
+
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+Coordonnées polaires : $M(r;\theta)$
+\begin{align*}
+    \vec{OM} &= r\vec{u}_r\\
+    d\vec{OM} &= dr\vec{u}_r + rd\theta\vec{u}_\theta
+.\end{align*}
+
+\begin{align*}
+    \vec{v} &= \frac{d\vec{OM}}{dt}\\
+    &= \frac{dr}{dt}\vec{u}_r + r\frac{d\theta}{dt}\vec{u}_\theta\\
+    \vec{v}&= \dot{r}\vec{u}_r + r \dot{\theta} \vec{u}_\theta\\
+.\end{align*}
+\end{minipage}
+
+Dans le repère d'étude, $\vec{i} \text{ et } \vec{j}$ sont constants, contrairement à $\vec{u}_\theta \text{ et } \vec{u}_r$.
+On peut passer de coordonnées polaires à cartésiennes et vice-versa :\\
+\begin{itemize}
+    \item Si on connait les coordonnées cartésiennes : \\ 
+    \begin{eqnarray*}
+        r = \sqrt{x^2 + y^2}\\ \cos\theta = \frac{x}{r}\\ \sin\theta = \frac{y}{r} 
+    \end{eqnarray*}
+    \item Si on connait les coordonnées polaires : \\
+    \begin{eqnarray*}
+        x = r \cos\theta\\
+        y = r \sin\theta
+    \end{eqnarray*}
+\end{itemize}
+    
+\subsubsection{Vecteur vitesse en coordonnées polaires}
+
+Le repère $(O;\vec{u}_r;\vec{u}_\theta)$ est en mouvement avec $\theta$ : 
+
+\begin{align*}
+    \vec{u}_r &= \cos\theta(t) \vec{i} + \sin\theta(t)\vec{j}\\
+    \vec{u}_\theta &=  -\sin\theta(t)\vec{i} + \cos\theta(t)\vec{j} 
+.\end{align*}
+
+Or on a : 
+$\vec{OM} = r\vec{u}_r$\\
+Donc : 
+\begin{equation*}
+    \vec{v}(t) = \frac{d\vec{OM}}{dt} = \frac{d}{dt}\space r \space \vec{u}_r = \dot{r} \vec{u}_r + r \frac{d\vec{u}_r}{dt} 
+\end{equation*}
+Or : 
+\begin{align*}
+    \frac{d\vec{u}_r}{dt} &= \frac{d}{dt} (\cos\theta(t) \vec{i} + \sin\theta(t)\vec{j})\\
+    &= \dot{\theta} (-\sin\theta) \vec{i} + \dot{\theta} \cos\theta \vec{j}\\
+    &= \dot{\theta} (-\sin\theta \vec{i} + \cos\theta \vec{j})\\
+    &= \dot{\theta}\vec{u}_\theta
+.\end{align*}
+D'ou  : $\vec{v} = \dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta$
+\subsubsection{Vecteur accélération en coordonnées polaires}
+
+\[
+\vec{a}(t) = \frac{d\vec{v}(t)}{dt} = \frac{d}{dt} (\dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta) = \ddot{r} \vec{u}_r + \dot{r}\frac{d\vec{u}_r}{dt} +r\ddot{\theta}\vec{u}_\theta + r\dot{\theta}\frac{d\vec{u}_\theta}{dt}
+\]
+Or : $\frac{d\vec{u}_r}{dt} = \dot{\theta}\vec{u}_\theta$ (voir la partie sur la vitesse)\\
+De plus, : 
+\begin{align*}
+    \frac{d\vec{u}_\theta}{dt} &= \frac{d}{dt}(-\sin\theta\vec{i}+\cos\theta\vec{j}) \\
+    &= \dot{\theta}(-\cos\theta \vec{i} - \sin\theta\vec{j}) \\
+    &= -\dot{\theta}\vec{u}_r
+\end{align*}
+
+D'où : $\vec{a}(t) = \ddot{r}\vec{u}_r +\dot{r}\dot{\theta}\vec{u}_\theta + r\ddot{\theta}\vec{u}_\theta -r\dot{\theta}\dot{\theta}\vec{u}_\theta = (\ddot{r}-r\dot{\theta}^2)\vec{u}_r + (r\ddot{\theta}+2\dot{r}\dot{\theta})\vec{u}_\theta$
+
+\subsubsection{Cas particulier du MCU}
+On a  : $r = R = cste $ (donc $\dot{r} = 0$). Et :  $\omega = \dot{\theta}$ (vitesse angulaire)
+
+\paragraph{Mouvement circulaire non uniforme}
+
+\begin{align*}
+    \vec{v}&= \dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta\\
+    \vec{a}&=  (\ddot{r}-r\dot{\theta}^2)\vec{u}_r + (r\ddot{\theta}+2\dot{r}\dot{\theta})\vec{u}_\theta
+.\end{align*}
+
+Donc : \\
+\[
+\begin{cases}
+    \vec{v} = R\omega\vec{u}_\theta\\
+    \vec{a} = -R \omega^2\vec{u}_r
+\end{cases}\]
+
+\paragraph{MCU}
+\[
+\begin{cases}
+    \vec{v} = R\omega\vec{u}_\theta = \text{cste} \\
+    \vec{a} = -R \omega^2\vec{u}_r
+\end{cases}
+.\] 
+\subsubsection{Coordonnées cylindropolaires}
+%AJOUTER SCHEMA VOIR ONENOTE
+On a : $\vec{OM} = \vec{OM'}+\vec{M'M} = r\vec{u}_r + h\vec{k}$ ($\vec{OM}$ est exprimé en coordonnées polaires)\\
+Or : $\frac{dh\vec{k}}{dt} = \dot{h}\vec{k} \text{ et } \frac{d^2h\vec{k}}{dt^2} = \ddot{h}\vec{k}$\\
+On a donc : 
+\begin{align*}
+    \vec{v} &= \dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta + \dot{h}\vec{k}\\
+    \vec{a} &= (\ddot{r} - r \dot{\theta}^2)\vec{u}_r + (r\ddot{\theta} +2\dot{r}\dot{\theta})\vec{u}_\theta + \ddot{h}\vec{k}
+\end{align*}
+\subsubsection{Coordonnées sphériques}
+
+%FAIRE SCHEMA VOIR ONENOTE
+
+Coordonnées sphériques : $M(r;\theta;\phi)$. On a : $\vec{OM} = r\vec{u}_r$. On exprime $d\vec{OM}$ : $d\vec{OM} = dr \vec{u}_r$.\\
+On a : 
+\[
+\vec{v}(t) = \dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta + r\sin\theta\dot{\phi}\vec{u}_\phi
+\]
+
+\section{Grandeurs cinématiques}
+\subsection{Quantité de mouvement}
+Par définition, la quantité de mouvement d'un point matériel M de masse m et animé d'un vitesse $\vec{v}$ dans le réferentiel d'étude est : \\\[
+\vec{p}(t) = m\vec{v}(t)
+.\] 
+Lien avec la dynamique : PFD : $\sum_{}^{} \vec{F}_{ext} = \frac{d\vec{p}(t)}{dt}$. \\
+Si le système est isolé ou pseudoisolé, $\sum \vec{F}_{ext} = 0 \implies \frac{d\vec{p}}{dt} = 0$ soit $\vec{p} = $ cste
+\subsubsection{1\textsuperscript{ère} application : chez les particules}
+
+%SCHEMA
+
+La vitesse (et donc $\vec{p}$) dépend du réferentiel.\\
+La Bille(1) a une vitesse initiale $\vec{v}_1$ et la bille(2) est immobile. \\
+Hypothèses : 
+\begin{enumerate}
+    \item Toutes les billes sont identiques (elles ont la même masse)
+    \item on suppose le choc elastique (il y a donc conservation de l'énergie cinétique)
+\end{enumerate}
+Référentiel : terrestre supposé galiléen.\\
+Bilan des forces : $\vec{P} = m\vec{g} \text{ et } \vec{R}_n (\text{On a :} \vec{P}+\vec{R}_n = 0)$\\
+D'après le principe d'inertie, $\sum \vec{F}_{ext} = 0$. Avant et après le choc, $\vec{P}_{tot}$ et E\textsubscript{c} sont conservées : 
+\[
+m_1\vec{v}_1 + m_2 \vec{v}_2 = m_1 \vec{v'}_1 + m_2 \vec{v'}_2 (\text{Or on a : } m_1 = m_2 = m \text{ et } \vec{v}_2 =0) 
+.\] 
+D'ou : $\vec{v}_1 = \vec{v'}_1 +\vec{v'}_2$
+
+Conservation de l'énergie cinétique : 
+\[
+\frac{1}{2}mv_1^2 + \frac{1}{2} mv_2^2 = \frac{1}{2}mv_1'^2 + \frac{1}{2}mv_2'^2
+.\] 
+D'où : \(v_1^2 = v_1'^2 + v_2^2 \)\\
+Or : \(\begin{cases}
+    v_1^2 = \vec{v}_1^2 = (\vec{v}_1' + \vec{v}_2')^2 = v_1'^2 + v_2'^2 + 2\vec{v}_1' \cdot \vec{v}_2'\\
+    v_1^2 = v_1'^2 + v_2'^2
+\end{cases} \)\\
+\(\implies  \) il faut : \(\vec{v}_1' \cdot \vec{v}_2'^2 = 0\)\\
+
+2 solutions : \\ 
+\begin{enumerate}
+    \item \(
+    \begin{cases}
+        \vec{v'}_1 \neq 0 \\ \vec{v'}_2 = \vec{0}
+    \end{cases} \text{ ou } \begin{cases}
+        \vec{v'}_1 = \vec{0}\\ \vec{v'}_2 \neq \vec{0}
+    \end{cases}
+    .\)
+    \item \(\vec{v'}_1 \perp \vec{v'}_2\) (les deux billes forment un angle de $\frac{\pi}{2}$)
+\end{enumerate}
+
+\subsubsection{Application : recul d'une arme à feu}
+
+m : masse du projectile et M : masse du cannon.\\
+\(\vec{P}_{\text{avant}} = \vec{0} = \vec{P}_{\text{après}} = m\vec{v} + M\vec{v}\) \\
+D'ou : \(\vec{v}_1 = -\frac{m}{M}\vec{v}_2\)
+
+\subsubsection{PFD pour un système ouvert (fusée)}
+
+%Schema 
+
+\[
+\begin{cases}
+    \vec{p}(t) &= m\vec{v}  \\
+    \vec{p}(t+dt)&= (m-dm)(\vec{v}) + dm(\vec{v}+d\vec{}) \\
+\end{cases}
+.\] 
+\begin{align*}
+    d\vec{p} &= \vec{p}(t+dt) -\vec{p}(t) \\
+    &= m\vec{v} + md\vec{v} -dmd\vec{v} + dm\vec{v} + dmd\vec{v} + dm\vec{v}_e - m\vec{v} \\
+    &= md\vec{v} + dm\vec{v}_e
+.\end{align*}
+
+Donc : \( \frac{d\vec{p}}{dt} = m\frac{d\vec{v}}{dt} + \frac{dm}{dt} \vec{v}_e \) \\ \\
+Donc : \(m \frac{d\vec{v}}{dt} = \frac{d\vec{p}}{dt} - \frac{dm}{dt} \vec{v}_e \)\\
+
+D'ou : \(f_{\vec{p}} = -\frac{dm}{dt}\vec{v}_e\) (force de poussée de la fusée)
+\subsection{Moment cinétique}
+
+Maths : 
+\begin{align*}
+    \vec{i} \wedge \vec{j} &= \vec{k} \\
+    \vec{j} \wedge \vec{k} &= \vec{i} \\
+    \vec{k} \wedge \vec{i} &= \vec{j} \\
+\end{align*}
+
+Propriétés : \\
+\begin{itemize}
+    \item \((\vec{u}\wedge\vec{v}) = - (\vec{v} \wedge \vec{u})\)
+    \item \(\vec{u} \wedge \vec{u} = \vec{0}\)
+    \item \(\vec{u} \wedge \vec{v} \wedge \vec{w} = (\vec{u}\wedge \vec{v}) \wedge \vec{w} = \vec{u} \wedge (\vec{v} \wedge \vec{w})\)
+    \item \(\lambda \vec{u} \wedge \vec{v} = \vec{u} \wedge \lambda\vec{v} = \lambda (\vec{u}\wedge \vec{v})\)
+    \item \((\vec{u}\wedge\vec{v})\perp(\vec{u},\vec{v})\)
+\end{itemize}
+
+Par definition, le moment cinétique d'un point M de masse m et animé d'une vitesse \(\vec{v}\) est : \\
+\(\vec{\sigma}_0 = \vec{L}_0 = \vec{OM}\wedge m\vec{v}\)
+\subsubsection{En coordonnées cylindropolaires}
+
+\(\vec{OM} = r \vec{u}_r\)\\
+\(\vec{v} = \frac{d\vec{OM}}{dt} = \dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta\).\\
+\begin{align*}
+    \vec{L}_0 &= \vec{OM} \wedge m\vec{v} \\
+    &= r\vec{u}_r \wedge m(\dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta) \\
+    &= rm(\dot{r}\vec{u}_r \wedge \vec{u}_r +\vec{u}_r\wedge r\dot{\theta}\vec{u}_\theta) \\
+    &= rm\cdot r\dot{\theta}\vec{u}_z \\
+    \vec{L}_0 &= mr^2\dot{\theta}\vec{u}_z
+.\end{align*}
+
+Quand est ce que \(\vec{L}_0 = cste\)?\\
+\begin{align*}
+    \frac{d\vec{L}_0}{dt}&= \frac{d}{dt} (\vec{OM}\wedge m\vec{v}) \\
+    &= \frac{d\vec{OM}}{dt}\wedge m\vec{v} + \vec{OM}\wedge \frac{dm\vec{v}}{dt}   \\
+    \intertext{Or $\vec{v} = \frac{d\vec{OM}}{dt}$ et $m = cste$ donc, }\\
+    \frac{d\vec{L}_0}{dt} &= \vec{v}\wedge m\vec{v}+ \vec{OM} \wedge m\frac{d\vec{v}}{dt}\\
+    \intertext{Or \(\vec{u}\wedge \vec{u} = \vec{0}\) et \(m \frac{d\vec{v}}{dt} = \vec{f} \) donc,}\\
+    \frac{d\vec{L}_0}{dt} &= \vec{OM}\wedge \vec{f} = M_0(\vec{f}) \text{théorème du moment cinétique}\\
+.\end{align*}
+
+Ainsi, on a : $\frac{d\vec{L}_0}{dt} = \vec{OM}\wedge \vec{f} = \vec{0}\iff \vec{OM}\propto \vec{f}$\\
+
+\[
+\begin{cases}
+    \vec{F}_G &= -\frac{GmM}{r^2}\vec{u}_r \text{ et } \vec{OM} = r\vec{u}_r\\
+    \vec{F}_e &= - \frac{1}{4\pi \epsilon_0} \cdot \frac{qq'}{r^2}\vec{u}_r \text{ et } \vec{OM} = r\vec{u}_r
+\end{cases}
+.\] 
+
+
+Ainsi, dans un champ, le moment cinétique est constant.\\
+Le moment cinétique est a chaque instant dirigé perpendiculairement au plan défini par \(\vec{u}_\theta \text{ et }\vec{u}_r\). Le mouvement est dans ce plan. On a :\\
+\(\|\vec{L}_0\| = L_0 = mr^2\dot{\theta } = cste \) or, \(m = cste\). Donc \(r^2\dot{\theta } = cste\). On a montré la deuxième loi de Kepler. 
+
+\subsection{Application des théorèmes de la physique}
+
+On considère un pendule de longueur \(l\) constitué d'un fil inextensible de longueur \(l\), de masse négligeable, et de l'objet \(M\) de masse \(m\) assimilé à un point matériel.\\
+A \(t=0s\), on l'écarte d'un angle \(\theta_0\) et on le lâche sans vitesse initiale. On néglige les frottements.\\
+\(\leftarrow\) Etablir l'équation du mouvement \(\iff \theta(t)\)
+\subsubsection{1ère Méthode : le PFD} 
+\underline{Réferentiel} : terrestre supposé galiléen\\
+\underline{Système} : {objet (M)}\\
+BDF : Le poids \(\vec{P} = m\vec{g}\) et la tension du fil \(\vec{T}\).\\
+
+On projette les vecteurs : \\
+\begin{equation*}
+   \vec{P}\begin{pmatrix} mg \cos\theta \\ -mg \sin\theta\end{pmatrix} \text{ et } \vec{T}\begin{pmatrix} -T\\ 0 \end{pmatrix} 
+\end{equation*}
+
+D'après le PFD : \(m\vec{a} = \vec{P}+\vec{T}\)\\
+Or en coordonnées polaires : 
+
+
+\begin{align*}
+    \vec{v} &= \dot{r}\vec{u}_r + r\dot{\theta}\vec{u}_\theta\\
+    \vec{a} &= (\ddot{r}-r\dot{\theta}^2)\vec{u}_r + (r\dot{\theta} + 2\dot{r}\dot{\theta})\vec{u}_\theta 
+.\end{align*}
+
+
+Or le fil étant inextensible, on a : \(r = l = cste\) (donc \(\dot{r} = \ddot{r} = 0\))\\
+D'où : 
+
+\begin{align*}
+    \vec{v} &= l\dot{\theta} \vec{u}_\theta \\
+    \vec{a} &= -l\dot{\theta}\vec{u}_r + l\ddot{\theta}\vec{u}_\theta 
+.\end{align*}
+Or : \(m\vec{a} = \vec{P}+\vec{T}\)\\
+D'ou : 
+\[
+\begin{cases}
+    -ml\dot{\theta} = mg \cos \theta -T = 0\\
+    ml\ddot{\theta} = -mg\sin \theta 
+\end{cases}
+.\] 
+\[
+\implies \ddot{\theta}+\frac{g}{l}\sin \theta = 0
+.\] 
+
+\subsubsection{2e méthode, conservation de l'énergie mécanique}
+
+\(\Delta E_m = \Sigma \vec{F}_{nc} = 0\) car à tout instant, \(W\vec{T} = \vec{T}\cdot dl = 0\).\\
+
+
+\begin{align*}
+   \implies E_m &= \frac{1}{2}mv^2 + E_{pp}\\
+   \intertext{Or : $(\vec{v} = \dot{r}\vec{u}_r +r\dot{\theta}\vec{u_8}_\theta) = l\dot{\theta}\vec{u}_\theta $}\\
+    &= \frac{1}{2}m(l\dot{\theta})^2 +mgl(1-\cos\theta) \\
+.\end{align*}
+
+Or :
+\begin{align*}
+    \frac{dE_m}{dt} &= 0 \\
+    &= \frac{1}{2} ml^2\cdot 2\dot{\theta}\ddot{\theta}+mgl(-1)\dot{\theta}(-\sin\theta)\\
+    \implies 0 &= ml^2\dot{\theta}\ddot{\theta} + mgl\dot{\theta}\sin\theta \\
+    \iff 0&= ml^2\dot{\theta} \left[\ddot{\theta} +\frac{g}{l}\sin \theta \right]\\
+    \iff 0&= \ddot{\theta} +\frac{g}{l}\sin\theta 
+.\end{align*}
+
+\subsubsection{3e méthode : TMC}
+
+\begin{align*}
+    \frac{d\vec{L}_0}{dt} &= \vec{OM}\wedge \vec{f} \\
+    &= \vec{OM} \wedge \vec{P} + \vec{OM}\wedge \vec{T} \\
+.\end{align*}
+
+\begin{align*}
+    \vec{L}_0 &= \vec{OM} \wedge m\vec{v} \\
+    &= l\vec{u}_r \wedge m(l\dot{\theta}\vec{u}_\theta) \\
+    &= ml^2\dot{\theta}\vec{u}_z \\
+.\end{align*}
+
+\begin{align*}
+    \vec{\mathcal{M}}_0(\vec{P}) &= l\vec{u}_r\wedge (mg\cos\theta \vec{u}_r -mg\sin\theta \vec{u}_\theta) \\
+    &= -mgl\sin\theta \vec{u}_z\\
+    \implies \frac{d\vec{L}_0}{dt} &= \vec{\mathcal{M}_0}(\vec{P}) \\
+    &= ml^2\ddot{\theta} \\
+    &= -mgl\sin \theta \\
+    \implies 0&= \ddot{\theta} + \frac{g}{l}\sin\theta
+.\end{align*}
+
+\section{Energie mécanique d'un point matériel. Petits mouvements au voisinage d'un point déquilibre stable}
+
+\subsection{E\textsubscript{m} d'un point en mouvement}
+\subsubsection{Théorème de l'énergie cinétique}
+
+\underline{Def} : La puissance \(P\) d'une force \(\vec{f}\) qui s'applique à un point matériel de masse \(m\) évoluant à la vitesse \(\vec{v}\) dans le réferentiel d'étude est : \\
+\[
+P = \vec{f}\cdot \vec{v} (M)
+.\] 
+
+\underline{Remaques}  : 
+\begin{itemize}
+    \item $1 N = 1 \, \text{kg} \cdot \text{m} \cdot \text{s}^{-2}$
+    \item \(1\text{W} = 1\text{kg}\cdot \text{m}^2\text{s}^{-3}\)
+    \item \(P = \|\vec{f}\|\cdot  \|\vec{v}\|\cdot \cos(\vec{f},\vec{v})\)
+    \subitem  si \(P>0 \implies \vec{f}\) motrice
+    \subitem  si \(P<0 \implies \vec{f}\) resistante
+\end{itemize}
+
+\underline{Def} : Le travail élémentaire \(\delta W\) entre deux instants   \(t\) et \(t+dt\)d'une force \(\vec{f}\) s'exercant sur le point \(M\)est : \\
+
+\[
+\delta W (\vec{f}) = p\cdot dt
+.\] 
+
+\begin{align*}
+    \text{Or : } \delta W (\vec{f}) &= p\cdot dt \\
+    &= \vec{f}\cdot \vec{v}dt \\
+    &= \vec{f} \cdot \frac{d\vec{OM}}{dt} \cdot dt \\
+    &= \vec{f}\cdot d\vec{OM} \\
+    \delta W(\vec{f}) &= \vec{f}\cdot d\vec{l} \text{ où } d\vec{OM} = d\vec{l}
+.\end{align*}
+\underline{Remarque} : \(1\text{J} = 1\text{kg}\cdot \text{m}^2\cdot \text{s}^{-2}\)\\
+\(\implies\) entre deux instants \(t_1\text{ et }t_2\) ou deux positions \(M_1\) et \(M_2\), le travail de la force est : \\
+\[
+W^{\vec{f}}_{1 \to 2} = \int_{t_1}^{t_2} P\cdot dt \text{ ou } W^{\vec{f}}_{1 \to 2} = \int_{M_1}^{M_2} P\cdot dt   
+.\] 
+
+\paragraph{Théorème de l'énergie cinétique}
+Dans un réferentiel, d'après la deuxième loi de Newton : \\
+\[
+\vec{f} = \frac{d\vec{p}}{dt} = \frac{d}{dt} m\vec{v}
+.\] 
+Pour un point matériel, la masse st constante. On a donc : 
+\[
+\vec{f} = m\vec{a} = m \frac{d\vec{v}}{dt} 
+.\] 
+\begin{align*}
+    \text{Or,} P(\vec{f}) &= \vec{f}\cdot \vec{v} \\
+    &= m\vec{v} \cdot \frac{d\vec{v}}{dt} \\
+    &= \frac{d}{dt}(\frac{1}{2}mv^2) \\
+    \intertext{en effet, $v^2 = \vec{v}\cdot \vec{v}$}
+    \implies \frac{dv^2}{dt} &= \frac{d}{dt}(\vec{v}\cdot \vec{v})\\
+    &= \frac{d\vec{v}}{dt}\cdot \vec{v} + \vec{v}\cdot \frac{d\vec{v}}{dt} \\
+    &= 2\cdot \vec{v}\cdot \frac{d\vec{v}}{dt}
+.\end{align*} 
+D'où on a : \\
+\[
+P(\vec{f}) = \vec{f}\cdot \vec{v} = \frac{dE_c}{dt} \text{(Avec P la puissance cinétique)}
+.\] 
+
+\underline{Théorème de l'énergie cinétique} : \\
+\[
+E_c(t_1)-E_c(t_2) = \int_{t_1}^{t_2}P(\vec{f}) dt = \int_{M_1}^{M_2}\vec{f}d\vec{l} = W_{M_1\to M_2}^{\vec{f}}    
+.\] 
+
+\subsubsection{Forces conservatives et énergie potentielle}
+Définitions : Une force est dite conservative si son travail est indépendant du chemin pris. \\Ex : \(\vec{P} = m\vec{g}\)
+%SCHEMA
+
+\begin{align*}
+    W_{M_1\to M_2}^{\vec{P}} &= \int_{M_1}^{M_2}\vec{P}d\vec{OM}\\
+    &= \int_{M_1}^{M_2}-mg\vec{k}\cdot (dx\vec{i}+dy\vec{j}+dz\vec{k})\\
+    &= \int_{M_1 }^{M-2} -mg\cdot dz  \\
+    &= -mg(z_2 - z_1) \\
+    &= mg(z_1-z_2)
+.\end{align*}
+
+\underline{Ex} : Interaction électrostatique, Loi de Coulomb : \(\vec{F} = \frac{1}{4\pi\varepsilon} \frac{q_1q_2}{r^2}\cdot \vec{u}_r\)\\
+%SCHEMA
+\(\vec{u}_r = \frac{\vec{OM}}{\|\vec{OM}\|}\)\\
+\[
+W^{\vec{F}_e}_{M_1\to M_2} = \int_{M_1}^{M_2} \frac{1}{4\pi \epsilon_0} \frac{q_1q_2}{r^2}\cdot \vec{u}_r \cdot d\vec{OM}
+.\] 
+En coordonnées sphériques: 
+\[
+d\vec{OM} = dr\vec{u}_r + rd\theta \vec{u}_\theta +r\sin\theta d\phi \vec{u}_\phi 
+.\] 
+Or \((\vec{u}_r ;\vec{u}_\theta;\vec{u}_\phi)\) forment une base orthonormée, \(\implies \vec{u}_r \cdot \vec{u}_\theta = \vec{u}_r \cdot  \vec{u}_\phi  = 0\) 
+D'ou : 
+\begin{align}
+W_{M_1\to M_2}^{\vec{F}_e} &= \int_{M_1}^{M_2} \frac{1}{4\pi \varepsilon_0 } \frac{q_1q_2}{r^2} dr \\
+\intertext{Or $(\frac{1}{x})'  = -\frac{1}{x^2}$}\\
+W_{M_1\to M_2}^{\vec{F}_e} &= \frac{q_1q_2}{4\pi \varepsilon_0} \left[-\frac{1}{r}\right]_{M_2}^{M_1} \\
+&= \frac{q_1q_2}{4\pi \varepsilon_0} \left[-\frac{1}{r_1} + \frac{1}{r_2}\right] \\
+&= \frac{q_1q_2}{4\pi \varepsilon_0} \left[\frac{1}{r_2} - \frac{1}{r_1}\right]
+\end{align}
+
+Il apparait dans ces exemples qu'il existe une fonction \(E_p\) apelée énergie potentielle définie en tout point de l'espace telle que :\\
+\[
+    \Delta E_p = E_{p2} - E_{p1} = -W^{\vec{f}}_{1\to 2}   
+\]
+
+A toute force conservative on peut associer une énergie potentielle dépendant que des coordonnées et de la position. \\
+\(\underline{\text{Relation entre force et } E_{p} \text{ associée:}}\)  
+On définit un opérateur mathématique : le quotient noté \(\vec{grad}\) ou \(\grad \) tel que : 
+\[
+    df = \grad f \cdot d\vec{l}, \, \grad f = \begin{pmatrix}
+         \frac{\partial f}{\partial x} \\
+         \frac{\partial f}{\partial y} \\
+          \frac{\partial f}{\partial z}\\
+    \end{pmatrix}
+\]
+\end{document}
+

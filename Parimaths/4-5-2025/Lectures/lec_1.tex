@@ -1,0 +1,145 @@
+\chapter{Calculabilité}
+\section{Fonctions recursives primitives}
+
+\begin{definition}[But]\label{def:butfoncprim}
+    Définir les fonctions "calculables" :
+    \begin{itemize}
+        \item Machine de Turing
+        \item  \(\lambda \)-calcul
+        \item fonction récursive
+        \item fonction que je peux calculer en python 
+    \end{itemize}
+    These de Church-Turing : tous ces moyens sont équivalents ce sont les fonctions calculables
+\end{definition}
+
+
+\begin{eg}[Exemples :]\label{eg:}
+    \[
+        \begin{cases}
+            add: &\mathbb{N}^{2} \longrightarrow \mathbb{N} \\
+            &(x;y) \longmapsto x+y \text{ est d'arité 1}
+        \end{cases}
+    \]
+    \[
+        \begin{cases}
+            Succ: &\mathbb{N} \longrightarrow \mathbb{N}  \\
+            &x \longmapsto x+1 \text{ est d'arité 2}
+        \end{cases}
+    \]
+    \dots
+\end{eg}
+
+\begin{definition}[Fonctions récursives primitives]\label{def:}
+    On note \(FPR_{k}\) les fonctions \( \in FPR\) et d'arité \(k\)   
+    L'ensemble des fonctions récursives primitives (p,r) noté \(FPR\) est le plus petit de fonctions d'arité \(n \geq 1\) tq : 
+    \[
+        \begin{cases}
+        C_0: &\mathbb{N} \to \mathbb{N} \\
+        &x \mapsto 0 \in FPR
+        \end{cases}
+    \]
+    \[
+        \begin{cases}
+        Succ : &\mathbb{N} \to \mathbb{N}\\
+        &x \mapsto x+1 \in FPR
+        \end{cases}
+    \]
+    \[
+        \begin{cases}
+        \Pi_{i}^{n} : &\mathbb{N}^{n} \to \mathbb{N}\\
+        &(x_{1},\dots, x_{n}) \mapsto x_{i} \in FPR
+        \end{cases}
+    \]
+    Composition si \(f_{1} \in FPR_{k}, \dots, f_{n} \in FPR_{k}\) et \(g \in FPR_{k}\), alors :\\ 
+    \[
+        \begin{cases}
+        h : &\mathbb{N}^{k} \to \mathbb{N}\\
+        &x_{1},\dots,x_{n} \mapsto g(f_{1}((x_{1},\dots,x_{k})), \dots, f_{n}(x_{1},\dots,x_{k}))
+        \end{cases}
+    \]
+    On a : \(h \in FPR_{k}\)\\
+    Recursion : si \(f \in FPR_{n}\) et \(g \in FPR_{n+2}\), alors on définit : \\
+    \[
+        \begin{cases}
+        h : &\mathbb{N}^{n+1} \to \mathbb{N}\\
+        &x_{1},\dots,x_{n},y \mapsto \begin{cases}
+        f(x_{1},\dots,x_{n}) \iff y = 0 \\
+        g(x_{1},\dots,x_{n}, h(x_{1},\dots,x_{n}, y-1),y) \iff  y \geq 1
+        \end{cases}
+        \end{cases}
+    \] 
+\end{definition}
+
+\begin{corollary}[Condition]\label{col:}
+    Soit \(g_{1}, g_{2},P \in FPR\) On cherche \(f\) tq :\\
+    \[
+        f(x) = \begin{cases}
+        g_{1}(x), si P(x) = 0\\
+        g_{2}(x)
+        \end{cases}
+    \]
+\end{corollary}
+
+\begin{definition}[Ensemble primitif récursif]\label{def:Epr}
+    Soit \(E \subset \mathbb{N}^{k}\). On dir que \(E\) est p.r. si : 
+    \[
+        \exists f \in FPR_{k} \text{ t.q. } \forall x_{1},\dots,x_{k} \in \mathbb{N}^{k} f(x_{1},\dots,x_{k}) = 0 \iff x_{1},\dots,x_{k} \in E
+    \] 
+    On a :\\
+    \[
+        f(x) = (1 \dot{-} P(x))g_{1}(x) + (1\dot{-}(1\dot{-}P(x)))g_{2}(x)
+    \]
+    La vérification est laissée en exercice. 
+\end{definition}
+
+\begin{corollary}[Propriété]\label{col:fsi}
+    Si \(g_{1},g_{2} \in FPR_{k}\) et \(E\) est un ensemble p.r., alors : \\
+    \[
+        f: x_{1},\dots,x_{k} \mapsto \begin{cases}
+        g_{1}(x_{1},\dots,x_{k}) \iff x_{1},\dots,x_{k} \in E\\
+        g_{2}(x_{1},\dots,x_{k}) \text{ sinon }
+        \end{cases}
+    \] 
+\end{corollary}
+
+\begin{corollary}[Prop]\label{col:intersection}
+    Si \(E \subset \mathbb{N}^{k} \text{ et } F \subset \mathbb{N}^{k}\) sont p.r, alors \(E \cap F\) est p.r.  
+\end{corollary}
+
+On note \(x_{1},\dots,x_{k} = \underline{x}\) 
+
+
+\begin{explanation}
+    \(E \wedge F\) sont p.r., donc \(\exists F_{1} \wedge F_{2} \text{ t.q. }:\)\\
+    \[
+        \begin{cases}
+        F_{1}(\underline{x}) \neq 0 \iff \underline{x} \not \in E\\
+        F_{2}(\underline{x}) \neq 0 \iff \underline{x} \not \in F\\
+        F_{1} = F_{2} = 0 \text{ sinon } 
+        \end{cases}
+    \]  
+    faire par somme
+\end{explanation}
+
+\begin{corollary}[Union]\label{col:union}
+    Si \(E\) et \(F\) sont pr, alors \(E \cup F\) est pr. 
+\end{corollary}
+
+\begin{explanation}
+    mul \(\square\) 
+\end{explanation}
+
+\begin{corollary}[Privé]\label{col:prive}
+    Si \(E \subset \mathbb{N}^{k}\) est pr, alors \(\mathbb{N}^{k} \setminus E\) est pr 
+\end{corollary}
+\begin{explanation}
+    sous entre 1 et P
+\end{explanation}
+
+\begin{corollary}[Produit cartésion]\label{col:prodcart}
+    Si \(E \subset \mathbb{N}_{k}, F \subset \mathbb{N}_{l}\) pr, alors \(E \times F \subset \mathbb{N}^{k+l}\) pr  
+\end{corollary}
+
+\begin{explanation}
+    somme \(\square\) 
+\end{explanation}

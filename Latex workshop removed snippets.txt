@@ -1,0 +1,336 @@
+	{
+            "prefix": "([^ &\\\\\\+\\-=<>\\|!~@])([\\+\\-=<>])$",
+            "body": "$1 $2",
+            "mode": "maths",
+            "priority": -1,
+            "description": "whitespace before operators",
+            "triggerWhenComplete": true
+        },
+
+        {
+            "prefix": "(\\S) ([\\^_])$",
+            "body": "$1$2",
+            "mode": "maths",
+            "triggerWhenComplete": true,
+            "description": "remove extraneous sub/superscript space",
+            "priority": 2
+        },
+
+        {
+            "prefix": "([\\+\\-=<>])([^ &\\\\\\+\\-=<>\\|!~])$",
+            "body": "$1 $2",
+            "mode": "maths",
+            "priority": -1,
+            "description": "whitespace after operators",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\.\\.\\.$",
+            "body": "\\dots ",
+            "mode": "maths",
+            "description": "⋯",
+            "triggerWhenComplete": true
+        },
+         {
+            "prefix": "=>$",
+            "body": "\\implies ",
+            "mode": "maths",
+            "description": "⇒",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "=<$",
+            "body": "\\impliedby ",
+            "mode": "maths",
+            "description": "implied by",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "//$",
+            "body": "\\frac{$$1}{$$2} ",
+            "mode": "maths",
+            "description": "fraction (empty)",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "(^|[^\\\\])\\biff$",
+            "body": "$1\\iff ",
+            "mode": "maths",
+            "description": "⇔",
+            "triggerWhenComplete": true
+        },
+                {
+            "prefix": "(^|[^\\\\])\\binn$",
+            "body": "$1\\in ",
+            "mode": "maths",
+            "description": "in",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "(^|[^\\\\])\\bnotin$",
+            "body": "$1\\not\\in ",
+            "mode": "maths",
+            "description": "∈",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?!=$",
+            "body": " \\neq ",
+            "mode": "maths",
+            "description": "neq",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "==$",
+            "body": "&= ",
+            "mode": "maths",
+            "description": "aligned equal",
+            "priority": 1,
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?~=$",
+            "body": " \\approx ",
+            "mode": "maths",
+            "description": "≈",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?~~$",
+            "body": " \\sim ",
+            "mode": "maths",
+            "description": "∼",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?>=$",
+            "body": " \\geq ",
+            "mode": "maths",
+            "description": "≥",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?<=$",
+            "body": " \\leq ",
+            "mode": "maths",
+            "description": "≤",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?>>$",
+            "body": " \\gg ",
+            "mode": "maths",
+            "description": "≫",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?<<$",
+            "body": " \\ll ",
+            "mode": "maths",
+            "description": "≪",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?xx$",
+            "body": " \\times ",
+            "mode": "maths",
+            "description": "×",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?\\*\\*$",
+            "body": " \\cdot ",
+            "mode": "maths",
+            "description": "⋅",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "(^|[^\\\\]\\b|[ ,\\)\\]\\}]\\w*)(to|->)$",
+            "body": "$1\\to ",
+            "mode": "maths",
+            "description": "→",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?(?:\\|->|!>)$",
+            "body": " \\mapsto ",
+            "mode": "maths",
+            "description": "↦",
+            "priority": 1.1,
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bbar$",
+            "body": "\\overline{$$1}",
+            "mode": "maths",
+            "description": "overline",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\b(\\\\?[\\w\\^{}]{1,3})bar$",
+            "body": "\\overline{$1}",
+            "mode": "maths",
+            "description": "overline",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\b([\\w\\^{}])hat$",
+            "body": "\\hat{$1}",
+            "mode": "maths",
+            "description": "hat",
+            "triggerWhenComplete": true
+        },
+                {
+            "prefix": "\\\\\\\\\\\\$",
+            "body": "\\setminus ",
+            "mode": "maths",
+            "description": "∖ (setminus)",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bpmat$",
+            "body": "\\begin{pmatrix} $$1 \\end{pmatrix} ",
+            "mode": "maths",
+            "description": "pmatrix",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bbmat$",
+            "body": "\\begin{bmatrix} $$1 \\end{bmatrix} ",
+            "mode": "maths",
+            "description": "bmatrix",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bpart$",
+            "body": "\\frac{\\partial $${1:V}}{\\partial $${2:x}} ",
+            "mode": "maths",
+            "description": "partial derivative",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bsq$",
+            "body": "\\sqrt{$$1}",
+            "mode": "maths",
+            "description": "√",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?sr$",
+            "body": "^2",
+            "mode": "maths",
+            "description": "²",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?cb$",
+            "body": "^3",
+            "mode": "maths",
+            "description": "³",
+            "triggerWhenComplete": true
+        },
+                {
+            "prefix": "\\bEE$",
+            "body": "\\exists ",
+            "mode": "maths",
+            "description": "∃",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bAA$",
+            "body": "\\forall ",
+            "mode": "maths",
+            "description": "∀",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bdint$",
+            "body": "\\int_{$${1:-\\infty}}^{$${2:\\infty}} ",
+            "mode": "maths",
+            "description": "∫ₐᵇ",
+            "triggerWhenComplete": true
+        },
+                {
+            "prefix": "\\bset$",
+            "body": "\\\\{$$1\\\\} ",
+            "mode": "maths",
+            "description": "set {}",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": " ?\\|\\|$",
+            "body": " \\mid ",
+            "mode": "maths",
+            "description": "∣",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "< ?>$",
+            "body": "\\diamond ",
+            "mode": "maths",
+            "description": "⋄",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\bcase$",
+            "body": "\\begin{cases} $$1 \\end{cases} ",
+            "mode": "maths",
+            "description": "cases",
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "\\\\\\)(\\w)$",
+            "body": "\\) $1",
+            "mode": "any",
+            "description": "space after inline maths",
+            "triggerWhenComplete": true
+        },
+                {
+            "prefix": "([^ \\\\])  $",
+            "body": "$1\\, ",
+            "mode": "maths",
+            "description": "add maths whitespace \\,",
+            "priority": -1,
+            "triggerWhenComplete": true
+        },
+
+        {
+            "prefix": "([^ \\\\])\\\\, {2,4}$",
+            "body": "$1\\: ",
+            "mode": "maths",
+            "description": "add maths whitespace \\:",
+            "priority": 0.1,
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "([^ \\\\])\\\\: {2,4}$",
+            "body": "$1\\; ",
+            "mode": "maths",
+            "description": "add maths whitespace \\;",
+            "priority": 0.2,
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "([^ \\\\])\\\\; {2,4}$",
+            "body": "$1\\ ",
+            "mode": "maths",
+            "description": "add maths whitespace \\ ",
+            "priority": 0.3,
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "([^ \\\\])\\\\ {2,4}$",
+            "body": "$1\\quad ",
+            "mode": "maths",
+            "description": "add maths whitespace quad",
+            "priority": 0.4,
+            "triggerWhenComplete": true
+        },
+        {
+            "prefix": "([^ \\\\])\\\\quad {2,4}$",
+            "body": "$1\\qquad ",
+            "mode": "maths",
+            "description": "add maths whitespace qquad",
+            "priority": 0.5,
+            "triggerWhenComplete": true
+        },

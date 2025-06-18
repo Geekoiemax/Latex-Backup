@@ -1,0 +1,90 @@
+\chapter{Filtrage linéaire }
+\section{Principe du filtrage linéaire}
+
+\begin{definition}[Un filtre]
+    1 filtre est un quadrupôle admettant une tension d'entrée et délivrant une tension de sortie. \par
+    On dit que le filtre est linéaire si : 
+    \[
+        \frac{\underline{s}(t)}{\underline{e}(t)} = \underline{H}(j \omega ) \implies \underline{s}(t) = \underline{H}(j \omega ) \underline{e}(t )
+    \]
+    Où \(\underline{H}(j \omega )\) est une fraction rationelle.
+\end{definition}
+
+\begin{definition}[Gain]
+    On appelle le gain du filtre  : \(G(\omega ) = \lvert H(j \omega ) \rvert \). \par
+    On définit le gain en décibels : \(G_{db} = 20 \log \lvert \underline{H}( j \omega ) \rvert \). \par
+    On définit le déphasage \(\phi (\omega )\) : 
+    \begin{eqnarray*}
+        \phi (\omega ) &=& \arg {\underline{H}(j \omega ) \cdot \underline{e}(\omega)} \\
+        &=& \arg (\underline{H}(j \omega )) + \arg (\underline{e}(\omega ))
+    \end{eqnarray*}
+    On peut toujours prendre \(\arg (\underline{e}(\omega )) = 0 \) 
+\end{definition}
+
+\begin{definition}[Types de filtres]
+    On a quatres types de filtres : 
+    \begin{enumerate}
+        \item Passe haut
+        \item Passe bas
+        \item passe bande
+        \item coupe bande
+    \end{enumerate}
+\end{definition}
+
+\section{Filtre du 1er ordre}
+\subsection{Passe bas du 1er ordre}
+\subsubsection{Exemple : cirstuit RC}
+
+%SCHEMA
+On cherche la fonction de transfert : 
+\begin{eqnarray*}
+    \underline{H}(j \omega ) &=& \frac{\underline{s}(t)}{\underline{e}(t)} \\
+    &=& \frac{\underline{Z}_{c}}{\underline{Z}_{R} + \underline{Z}_{C}} \\
+    &=& \frac{\frac{1}{jc \omega }}{R + \frac{1}{jc \omega }} \\
+    \underline{H}(j \omega )&=& \frac{1}{1+Rjc \omega}
+\end{eqnarray*}
+Or \(\underline{Z}_{c} = \frac{1}{jc \omega } \to \infty \) quand \(\omega \to 0\). C'est un interupteur ouvert. \par
+\[
+    \implies \underline{s}(t) = \underline{e}(t)
+\]
+Si \(\omega  \to \infty \) : \par
+\[
+    \underline{Z}_{c} = \frac{1}{jc \omega } \to 0
+\]
+\[
+    \implies \underline{s}(t) = 0
+\]
+On a bien un filtre passe bas. 
+\(RC\) doit être homogène à un temps. On pose \(RC = \frac{1}{\omega_{0}}\) 
+Donc : 
+\begin{eqnarray*}
+    G(\omega) = \lvert \underline{H}(j \omega ) \rvert = \frac{1}{\sqrt{1+ (\frac{\omega}{\omega _{0}})^{2}}} \\
+    \implies G_{dB} = 20 \log \lvert \underline{H}(j \omega ) \rvert = - 10 \log [1+(\frac{\omega}{\omega _{0}})^{2}]      
+\end{eqnarray*}
+et : 
+\begin{eqnarray*}
+    \phi(\omega ) = -\arg [1+j \frac{\omega}{\omega _{0}}] = -\arctan (\frac{\omega}{\omega _{0}})
+\end{eqnarray*}
+
+Si \(\omega \to 0\) : \(G_{dB} \to 0\). \par
+Si \(\omega \to \infty \) : \(G_{db} \to -20 \log(\frac{\omega}{\omega_{0}})\)  \par
+Pour \(\phi(\omega )\) :
+Si \(\omega \to 0 \) : \(\phi (\omega) \to 0 \) \par
+Si \(\omega \to \infty \) : \(\phi (\omega ) \to -\frac{\pi}{2}\)
+
+\begin{definition}[Bande passante]
+    La bande passante à \(-3dB\) est l'ensemble des pulsations telles que : \(G(\omega ) \geq \frac{G_{\max}}{\sqrt{2}} \implies G_{dB} \geq G_{\max dB} - 3 \text{dB   }\). \par
+    Dans notre cas : \(G(\omega = \omega_{0} ) = \frac{1}{\sqrt{2}}\)  
+\end{definition}
+
+\subsection{Passe haut du premier ordre}
+On fait la même chose que la partie précédent mais on invertit le résistor et le condensateur. 
+\begin{eqnarray*}
+    H(j \omega ) &=& \frac{s(t)}{e(t)} \\
+    &=& \frac{R}{R+\frac{1}{jRc \omega }} \\
+    &=&\frac{jRc \omega }{1+jRc \omega } \\
+    &=& \frac{j(\frac{\omega}{\omega_{0}})}{1+j(\frac{\omega}{\omega_{0}})} \\
+    \implies G &=& \lvert \underline{H}(j \omega) \rvert = \frac{\frac{\omega}{\omega _{0}}}{\sqrt{1+(\frac{\omega}{\omega _{0}})^{2}}} \\
+    \implies G_{dB} &=& 20 \log \lvert \underline{H}(j \omega) \rvert \\
+    &=& 20 \log (\frac{\omega}{\omega_{0}}) -10 \log \left[ 1+ (\frac{\omega}{\omega_{0}})^{2} \right] 
+\end{eqnarray*}

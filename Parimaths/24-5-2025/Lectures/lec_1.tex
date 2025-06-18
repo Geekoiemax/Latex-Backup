@@ -1,0 +1,185 @@
+\section{Introduction aux ordinaux}
+
+\begin{definition}[Ensemble]
+    Un ensemble est une collection d'éléments non ordonnée et non redondante.
+\end{definition}
+
+\begin{lemma}[Axiome 1]
+    On dispose de l'ensemble vide \(\emptyset\). 
+\end{lemma}
+
+\begin{lemma}[Axiome 2]
+    Si on dispose d'un objet \(a\), alors \(\{a\}\) existe.
+\end{lemma}
+
+\begin{lemma}[Axiome 3]
+    Si \(A,B,C, \dots\) sont des ensembles, alors \(A \cup  B \cup C \cup \dots\) est un ensemble.
+\end{lemma}
+
+\begin{corollary}[Construction des entiers.]
+    \underline{Question} : Est-il possible de construire les entiers?
+    \begin{itemize}
+        \item 0 sera représenté par \(\emptyset \) 
+        \item 1 sera représenté par \(\{0\} = \{\emptyset\}\)
+        \item On réprésente alors 2 par \(\{0,1\} = \left\{ \emptyset ,\{\emptyset\}  \right\}\)  
+        \item Dans le cas général, on définit \(n\) par : \(n = \{1,\dots,n-1\} = (n-1) \cup \{n-1\}\).  
+    \end{itemize}
+\end{corollary}
+
+\begin{definition}[Sup]
+    Soit \(X\) un ensemble de nombres (\(X = \{0,2,7\}\)) et je veux créer une fonction \(\sup\) qui à \(X\) m'associe le plus grand nombre de \(X\).
+    \[
+        \sup X = \bigcup_{a \in X} a 
+    \] 
+\end{definition}
+
+\begin{definition}[Infini]
+    On cherche \(\sup \{0,\dots,n, \dots\}\). 
+    \begin{eqnarray*}
+        \sup \{0,\dots\} &=& 0 \cup 1 \cup \dots \\
+        &=& \{0,0,1,0,1,2, \dots\} \\
+        &=& \{0,1, \dots\} \\
+        &=& \omega
+    \end{eqnarray*}
+\end{definition}
+
+On a ainsi : 
+\begin{enumerate}
+    \item \(0,1, \dots, n \) les entiers
+    \item \(.^{+}\) la fonction qui à \(n\) associe son successeur
+    \item \(\omega\) le supérieur de tous les entiers  
+    \item \(\omega^{+} = {0,1, \dots, n, \dots, \omega}\) donc \(\omega^{+} \neq \omega\) 
+\end{enumerate}
+
+\begin{definition}[Comparaison]
+    Soient \(x\) et \(y\) des ordinaux. 
+    \begin{notation}
+        Si \(x\) appartient à \(y\), on note \(x<y\)
+    \end{notation}
+    \begin{notation}
+        Si \(x\) est inclus dans \(y\), on note \(x\leq y\) 
+    \end{notation}
+\end{definition}
+
+\begin{corollary}[Propriétés]
+    Pour tout \(n\) un ordinal on a : 
+    \[
+        \begin{cases}
+            n < \omega \\
+            n < n^{+}
+        \end{cases}
+    \]
+    Notamment, on a : 
+    \[
+        \omega < \omega^{+} < \omega^{++}
+    \]
+\end{corollary}
+
+\begin{corollary}[Transitivité]
+    On a : 
+    \[
+        x<y \wedge y<z \implies x<z
+    \]
+\end{corollary}
+
+\begin{definition}[Ordinal]
+     \(x\) est un ordinal, si: 
+    \[
+        y<x \implies  y\leq x
+    \]
+    \[
+        y<x \wedge z<x \implies 
+        \begin{cases}
+            y<z \\
+            \text{ ou } \\
+            y=z \\
+            \text{ ou } \\
+            y>z
+        \end{cases}
+    \]
+\end{definition}
+
+\begin{lemma}[Axiome de fondation]
+    Soit \(x_{0}\) un ensemble, \(x_{1}<x_{0}\), \(x_{2}<x_{1}\)..., alors : 
+    \[
+        \exists n, \not\exists x_{n+1}
+    \]   
+\end{lemma}
+
+\begin{theorem}[Minimum]
+    Soit \(x\) un ordinal, \(\tilde{x} \leq x , \tilde{x} \neq \emptyset \) alors : 
+    \[
+        \exists y < \tilde{x} \text{ t.q. } \forall z < \tilde{x}, y \leq z
+    \]
+\end{theorem}
+
+\begin{explanation}
+    laissée en exercice au lecteur
+\end{explanation}
+\begin{theorem}[Egalité]
+    Soit \(x, y \) des ordinaux : 
+    \[
+        x\leq y, y\geq x \implies x=y
+    \]
+\end{theorem}
+
+\begin{theorem}[thm]
+    Soient \(x,y\) des ordinaux, alors : 
+    \[
+        x\leq y \implies \begin{cases}
+            x = y\\
+            \text{ ou } \\
+            x<y
+        \end{cases}
+    \]
+\end{theorem}
+
+\begin{explanation}
+    Laissée en exercice au lecteur
+\end{explanation}
+
+\begin{notation}
+    On note : 
+    \[
+        \text{"Soit x un ordinal"} \iff "\text{Soit } x \in \mathrm{On}"
+    \]
+    et toutes les notations que l'on peut en découler.
+\end{notation}
+
+\begin{theorem}[Construction des ordinaux]
+    Soit \( x \in \mathrm{On}^{*}\) , alors l'une exactement des deux choses est vraies  :
+    \begin{itemize}
+        \item \(\exists y \in \mathrm{On} , x = y^{+}\) \\
+        \item \(x = \sup_{a<x} a\)  
+    \end{itemize} 
+\end{theorem}
+
+\begin{explanation}
+    Laissée en exercice au lecteur \(\,\square\).
+\end{explanation}
+
+\begin{theorem}[BIG theorem]
+    \[
+        (a,b) \in \mathrm{On}^{2} \implies \begin{cases}
+            a \leq b \\
+            \text{ ou } \\
+            b\leq a
+        \end{cases}
+    \]
+\end{theorem}
+
+\begin{explanation}
+    Laissée en exercice au lecteur \(\,\square\).
+\end{explanation}
+
+\begin{theorem}[Le sup]
+    \begin{eqnarray*}
+        a \in \mathrm{On} \implies a^{+} \in \mathrm{On}\\
+        X \subset \mathrm{On} \implies \sup X \in \mathrm{On}
+    \end{eqnarray*}
+\end{theorem}
+
+\begin{explanation}
+    Laissée en exercice au lecteur \(\,\square\).
+\end{explanation}
+

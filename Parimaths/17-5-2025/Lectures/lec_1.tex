@@ -1,0 +1,151 @@
+\chapter{Théorie de l'information}
+\section{Probabilités}
+
+\begin{definition}[L'univers]
+    L'univers, \(\Omega \) est un ensemble fini ou dénombrable non vide 
+\end{definition}
+
+\begin{definition}[Une probabilité]
+    Une probabilité sur \(\Omega \) est une fonction, \(P : \mathcal{P}(\Omega ) \to \mathbb{R}^{+}\) telle que :
+    \begin{itemize}
+        \item \(P(\Omega ) = 1\) 
+        \item  \(\forall (A_{n})_{n \in \mathbb{N}} \in \mathcal{P }(\Omega)^{\mathbb{N}}\), 2 à 2 disjoints, \(P(\bigsqcup _{n \in \mathbb{N}}A_{n}) = \sum _{n \in \mathbb{N}} P(A_{n})\) 
+    \end{itemize}  
+\end{definition}
+
+\begin{definition}[Variable aléatoire]
+    Soit E un ensemble. Une variable aléatoire à valeurs dans E est : \(X: \Omega  \to E\) 
+\end{definition}
+
+\begin{notation}
+    Pour \(x \in E\), on note : 
+    \[
+        (X=x) =  \left\{ \omega \in  \Omega | X(\omega ) = x  \right\}
+    \] 
+    \[
+        P(X=x) = P((X=x))
+    \]
+\end{notation}
+
+\begin{definition}[Sommes de variable aléatoires]
+    Soit \(X,Y\) deux variables aléatoires à valeurs dans \(E\) et \(F \). \(X\) et \(Y\) sont... voir le cours du manuel de maths
+\end{definition}
+
+\begin{remark}[Indépendances]
+    Soit \(X_{1}, \dots, X_{n+1}\) des variables aléatoires. Elles sont indépendantes ssi \(X_{1},\dots,X_{n}\) sont indépendantes et \((X_{1},\dots,X_{n})\) sont indépendantes
+\end{remark}
+
+\begin{definition}[Espérance]
+    Soit \(X\) une variable aléatoire réelle positive. L'espérance de \(X\) est : 
+    \[
+        E(X) = \sum_{x \in \mathbb{R}} P(X=x)x \in [0, \inf ]
+    \] 
+\end{definition}
+\begin{lemma}[Inégalité de Markov]
+    Soit \(X\) une VAR positive d'espérance finie. Soit \(a>0\). 
+    \[
+        P(X\geq a) \leq \frac{E(X)}{a}
+    \]
+\end{lemma}
+
+\begin{explanation}
+    Soit \(Y\) une variable aléatoire telle que : \(Y(\omega ) = \begin{cases}
+        a \iff X(\omega )\geq a\\
+        0 \text{ sinon}
+    \end{cases}\)
+    \begin{eqnarray*}
+        Y\leq X \\
+        E(Y) \leq E(X) \\
+        E(Y) = aP(X\geq a) + 0\\
+        aP(X \geq a) \leq E(X)
+    \end{eqnarray*}
+     
+\end{explanation}
+
+\begin{lemma}[Inégalité de Bienaymé-Tchebychev]
+    Soit \(X\) une VAR positive de variance finie. Soit \(\varepsilon \in  \mathbb{R}_{+}\). Alors : 
+    \[
+        P(\lvert X-E(X) \geq \varepsilon \rvert ) \leq \frac{V(X)}{\varepsilon^{2}}
+    \] 
+\end{lemma}
+
+\begin{lemma}[Loi faibe des grands nombres]
+    Soit \((X_{n})_{n \in \mathbb{N}^{*}}\) des VAR positives de variance finies, indépendantes et de même loi. Alors, \(\forall \varepsilon \gg 0\), 
+    \[
+        P(\lvert \frac{1}{n} \sum_{i=1}^{n} X_{i} - E(X_{i}) \rvert ) \to  0 (n \to  \inf )
+    \] 
+\end{lemma}
+
+\begin{explanation}
+    Laissée en exercice au lecteur
+\end{explanation}
+
+\begin{definition}[Convexité]
+    Soit \(I \subset \mathbb{R}\), \(f : I \to \mathbb{R}\). \(f\) est convexe sur \(I\) ssi : 
+    \[
+        \forall (x,y) \in I^{2}, \forall \lambda \in [0,1], f(\lambda x + (1-\lambda y)) \leq \lambda f(x) + (1-\lambda )f(y)
+    \]  
+\end{definition}
+
+\begin{theorem}[Inégalité de jensen]
+    Soit \(I \) un intervalle, \(f: I \to  \mathbb{R}\) convexe, \(x_{1}, \dots, x_{n} \in I^{n}\), \((\lambda_{1}, \dots, \lambda_{n}) \in \mathbb{R}^{n}_{+} \text{ t.q. } \sum \lambda _{i} = 1\)  Alors : 
+    \[
+        f(\sum \lambda_{i} x_{i}) \leq \sum \lambda_{i} f(x_{i})
+    \]
+\end{theorem}
+
+\begin{explanation}
+    Laissée en exercice au lecteur. 
+\end{explanation}
+
+\begin{lemma}[Inégalité sur l'espérance]
+    Soit \(X\) à valeurs dans \(I\) et \(f: I \to \mathbb{R}\) convexe telles que \(X\) et \(f(X)\) sont d'espérance finie.
+    \[
+        E(f(X)) \geq f(E(X))
+    \]  
+\end{lemma}
+
+\begin{explanation}
+    Laissée en exercice au lecteur. 
+\end{explanation}
+
+\section{Theorie de l'information}
+\subsection{Entropie}
+
+\begin{definition}[Entropie]
+    Soit \(\mathcal{X}\) fini telle que \(\lvert \mathcal{X} \rvert \geq 2 \), \(p : X \to  [0,1]\) une distribution probabiliste. L'entropie de \(p\) est : 
+    \[
+        H(p) = - \sum_{x \in \mathcal{X}} p(x) \log (p(x))
+    \]
+\end{definition}
+
+\begin{theorem}[Inégalité de Gibbs]
+    Soit \(p,q : \mathcal{X} \to [0,1]\) une distribution de probabilités.
+    \[
+        H(p) \leq - \sum_{x \in \mathcal{X}} p(x)\log ((x))
+    \] 
+    avec égalité ssi \(p = q\) 
+\end{theorem}
+
+\begin{explanation}
+    Laissée en exercice au lecteur. 
+\end{explanation}
+\begin{lemma}[Proposition]
+    Soit \((X_{1},\dots,X_{n})\) des VAR à valeurs dans \(\mathcal{X}\) Alors : 
+    \[
+        H(X_{1},\dots,X_{n}) \leq \sum_{i=1} H(X_{i})
+    \] 
+    avec égalité ssi les \(X_{i}\) sont indépendants 
+\end{lemma}
+
+\begin{explanation}
+    Laissée en exercice au lecteur. 
+\end{explanation}
+
+\begin{theorem}[1er théorème de Shannon]
+    Soit \(p : \Xi \to [0,1]\) une distribution de probabilités. On note \(D = \lvert \Xi  \rvert \). On note \(\log  = \log _{D}\). Soit \(R \in [0,1]\). Si \(R \)     
+\end{theorem}
+
+\begin{explanation}
+    Laissée en exercice au lecteur. 
+\end{explanation}

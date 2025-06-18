@@ -1,0 +1,134 @@
+\chapter{Equations du mouvement}
+\lecture{1}{21 Mai\ 11:30}{Session 1}
+\section{Cordonnées généralisées}
+
+\begin{definition}[Point matériel]
+    Un point matériel (ou particule) désigne un corps dont on peut négliger les dimensions lors de la description de son mouvement.
+    \begin{eg}[Exemples]
+        Les planètes sont donc des points matériels lorsqu'on étudie leur mouvement par rapport au soleil, mais pas lorsqu'on étudie leur mouvement de rotation diurne. 
+    \end{eg} 
+\end{definition}
+
+\begin{definition}[Position]
+    La position d'un point dans l'espace est donnée par son rayon-vecteur \(\vec{r}\) dont les composantes coincident avce ses coordonnées cartésiennes \(x,y,z\).   
+\end{definition}
+\begin{definition}[La vitesse]
+    La vitesse d'un point matériel est la dérivée de \(\vec{r}\) par rapport au temps : 
+    \[
+        \vec{v} = \frac{d}{dt}\vec{r}
+    \] 
+\end{definition}
+\begin{definition}[Accélération]
+    La dérivée seconde de la position est l'accélération : 
+    \[
+        \vec{a} = \frac{d}{dt}\vec{v} = \frac{d^{2}\vec{r}}{dt^{2}}
+    \]
+\end{definition}
+
+\begin{notation}
+    On note la dérivée par rapport au temps d'une grandeur au moyen d'un point sur la lettre. Les dérivées nièmes sont notées avec \(n\) points sur la lettre : 
+    \[
+        \begin{cases}
+            \frac{d}{dt}r = \dot{r} \\
+            \frac{d^{2}}{dt^{2}}r = \ddot{r}
+        \end{cases}
+    \]
+\end{notation}
+
+\begin{definition}[Degrés de libertés]
+    Le nombres de grandeurs nécéssaires pour déterminer de façon univoque la position d'un système est appellée \textit{degrés de libertés}. Dans le cas d'un système constitué de \(N\) points matériels se déplaçant dans l'espace, le degré de liberté est \(3N\), par exemple. 
+\end{definition}
+
+\begin{definition}[Coordonnées et vitesses généralisées]
+    \(s\) grandeurs quelconques \(q_{1},q_{2},\dots,q_{s}\) caractérisant totalement la position d'un système à \(s\) degrés de libertés sont apelées \textit{coordonnées généralisées} d'un système. \par
+    Leur dérivées \(\dot{q}_{1}, \dot{q}_{2}, \dots, \dot{q}_{s}\) sont apelées \textit{vitesses généralisées} du système. 
+\end{definition}
+
+\begin{notation}
+    Pour simplifier les écritures, on note \(q\) l'ensemble des coordonnées généralisées et \(\dot{q}\) l'ensemble des vitesses généralisées. 
+\end{notation}
+
+\begin{theorem}[Prédiction du système]
+    Il ne suffit pas de connaitre les coordonnées générales du système pour pouvoir déterminer "l'état mécanique" du système à un instant donné, car celles si ne permettent pas de prévoir la position du système à l'instant suivant. \par
+    Cependant, l'expérience montre que la donnée simultannée des coordonnées et des vitesses permet de déterminer complètement l'état du système et permet donc de prédire, en principe, son mouvement futur.\par
+    Les relations qui lient les accélérations aux coordonnées er aux vitesses sont appelées \textit{équations du mouvement}. Ce sont des équations différentielles du second ordre dont l'intégration permet, en principe de déterminer \(q(t)\) et donc la trajectoire.
+\end{theorem}
+
+\section{Le principe de moindre action}
+
+\begin{theorem}[principe de moindre action]
+    La formule la plus générale de la loi du mouvement des systèmes mécaniques est fourni par le \textit{principe de moindre action} (ou \textit{principe de Hamilton}). Selon ce principe, tout système mécanique est caractérisé par une fonction définie : 
+    \[
+        L(q_{1},\dots,q_{s}, \dot{q}_{1},\dots,\dot{q}_{s},t) = L(q,\dot{q},t)
+    \] 
+    Si aux instants \(t = t_{1}\) et \(t = t_{2}\), le système occupe des positions déterminées \(q^{(1)}\) et \(q^{(2)}\) respectivement, alors, entre ces positions, le système se meut de la façon tel que : 
+    \begin{equation}\label{2.1}
+        S = \int_{t_{1}}^{t_{2}} L(q,\dot{q},t)  dt
+    \end{equation}   
+    prenne la plus petite valeur possible. La fonction \(L\) est appelée \textit{fonction de Lagrange} du système et l'intégrale \autoref{2.1} est appelée \textit{l'action}. 
+\end{theorem}
+
+On cherche donc les équations qui permettetent de minimiser l'intégrale \autoref{2.1}. Pour simplifier les calculs, on étudie le cas avec un seul degré de liberté, de sorte à ce que la position soit décrite par une unique fonction \(q(t)\).\par
+Soit \(q = q(t)\) la fonction pour laquelle \(S\) est minimale. Cela signifie que \(S\) croit lorsque l'on remplace \(q(t)\) par une fonction quelconque : 
+\begin{equation}\label{2.2}
+    q(t) + \delta q(t)
+\end{equation}
+
+où \(\delta q(t)\) est une fonction petite sur l'intervalle \(t_{1}, t_{2}\) apelée variation de la fonction \(q(t)\). Puisque l'on connait les positions du système à \(t=t_{1}\) et \(t = t_{2}\), on a : 
+\begin{equation}
+    \label{2.3}
+    \delta  q(t_{1}) = \delta q(t_{2}) = 0
+\end{equation}    
+
+Le changement dans la valeur de S lorsqu'on remplace \(q\) par \(q + \delta q\) est décrit par : 
+\[
+    \int_{t_{1}}^{t_{2}} L(q+\delta q, \dot{q}+ \delta \dot{q},t) dt - \int_{t_{2}}^{t_{1}} L(q,\dot{q},t)  dt
+\] 
+
+La condition nécessaire du minimum de \(S\) est que l'ensemble des termes du développement en série de la différence est que l'ensemble des termes en \(\delta q\) s'annulent. On peut donc réécrire le principe d'Hamilton comme suit : 
+\begin{equation}
+    \label{2.4}
+    \delta S = \delta \int_{t_{1}}^{t_{2}} L(q,\dot{q},t)  dt  =0
+\end{equation} 
+Soit : 
+\[
+    \int_{t_{1}}^{t_{2}} \frac{\partial L}{\partial q} \delta q + \frac{\partial L}{\partial \dot{q}} \delta \dot{q}  dt = 0
+\]
+On peut faire une intégration par parties en utilisant le fait que \(\delta \dot{q} = \frac{d}{dt}\delta q\). On a  :
+\[
+    \delta S = \left[ \frac{\partial L}{\partial \dot{q}} \delta q \right]^{t_{2}}_{t_{1}} + \int_{t_{1}}^{t_{2}} \left( \frac{\partial L}{\partial \delta \dot{q}} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}} \right) \delta q  dt = 0 
+\] 
+En utilisant, \autoref{2.3}, on remarque que le premier terme est nul. Le reste de l'intégrale doit être nul pour toute valeur de \(\delta q\). Ceci est le cas seulement lorsque l'autre membres sous le signe somme s'annule également. On a donc : 
+\begin{equation}
+    \label{2.5}
+    \frac{d}{dt}\frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0
+\end{equation}
+S'il y a \(s\) degrés de libertés, chacune des fonctions \(q_{i}(t)\) doit varier indépendant. Nous obtenons alors \(s\) équations de la forme : 
+\begin{equation}
+    \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_{i}} - \frac{\partial L}{\partial q_{i}} = 0 \, (i = 1,2,\dots, s)
+\end{equation} 
+
+C'est en résolvant ces équations différentielles, appelées \textit{équations de Lagrange}, que l'on peut minimiser \(S\). 
+\begin{corollary}[Additivité de la fonction Lagrange]
+    Soit un système mécanique de fonction Lagrange \(L\), composé de deux parties : \(A\) et \(B\), dont chacune, étant fermée, aura pour fonction de Lagrange respectivement : \(L_{A} \text{ et } L_{B}\) Lorsque leurs intératarctions tendent à diparaitre, on a : 
+    \begin{equation}
+        \label{2.7}
+        \lim L = L_{A} + L_{B}
+    \end{equation}
+\end{corollary}
+
+\begin{remark}[Translation de l'action dans le temps]
+    Consédérons deux fonctions \(L'(q,\dot{q},t)\) et \(L(q,\dot{q},t)\), ne différant que l'une de l'autre par une dériveé totale par rapport au temps d'une fonction quelconque \(f(q,t)\) : 
+    \begin{equation}
+        \label{2.8}
+        L'(q,\dot{q},t) = L(q,\dot{q},t) + \frac{d}{dt}f(q,t)
+    \end{equation}  
+    On calcule alors \(S'\) : 
+    \begin{eqnarray*}
+        S' &=& \int_{t_{1}}^{t_{2}} L'(q,\dot{q},t)  dt \\
+        &=& \int_{t_{1}}^{t_{2}} L(q,\dot{q},t) + \frac{d}{dt}f(q,t)  dt \\
+        &=& S + f(q^{(2)},t_{2}) - f(q^{(1)},t_{1})
+    \end{eqnarray*}
+    Les actions diffèrent l'une de l'autre d'une constante. C'est à dire que la condition \(\delta S' = 0\) coincide avce la condition \(\delta S = 0\) et donc la forme des équations du mouvement reste inchangée.\par
+    De cette façon, la fonction de Lagrange est définie n'est définie qu'à la dérivée totale près d'une fonction des coordonnées et du temps.  
+\end{remark}

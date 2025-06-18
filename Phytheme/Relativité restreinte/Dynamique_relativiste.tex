@@ -1,0 +1,207 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts} %pour les maths
+\usepackage{tikz,ifthen,tikz-3dplot} %outil pour les schemas
+\usepackage{pgfplots}
+\usepackage[]{amssymb}
+\pgfplotsset{compat=1.18}
+
+%GEOMETRY
+\usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in,heightrounded]{geometry}
+%line height
+\renewcommand{\baselinestretch}{1.15}
+%paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\title{Dynamique relativiste}
+\author{Maxime Muller}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+\pagebreak
+\section{Le PFD}
+Pour un système isolé, dans un réferentiel galiléen, il y a conservation de la quantité de mouvement totale et de l'énergie totale.\\
+\[
+\implies\begin{cases}
+    \frac{d\vec{p}}{dt} = \vec{f}\implies d\vec{p} = \vec{f}\cdot dt\\
+    dE = \vec{f}\cdot dr
+\end{cases}
+.\] 
+\section{4-vecteur implusion énergie}
+L'impulsion est une généralisation de \(\vec{p}\) (la quantité de mouvement). Pour une onde :  \\
+\[\vec{p} = \hbar \vec{k} \text{ avec } \vec{k} = \frac{2\pi}{\lambda}\vec{u}\]\\
+D'après les deux relations précédentes : \\
+\(dE \cdot dt -d\vec{p} \cdot d\vec{r} = 0\) Or \(d\tilde{OM} = (cdt;d\vec{OM})\). Donc : \((\frac{dE}{c})cdt - d\vec{p}\cdot d\vec{r} = 0\)\\
+\[
+\implies \tilde{p} = \left(\frac{E}{c}, \vec{p}\right)
+\]
+est le 4-vecteur impulsion énergie.
+Soit \(m\) la masse propre de la particule. On pose, par définition, \(\tilde{p} = m\cdot \tilde{v}\)\\
+\begin{align*}
+    \tilde{p} &= \gamma m (c, \vec{v}) \\
+              &= (\gamma m c, \gamma m \vec{v}).
+\end{align*}
+Les trois dernières composantes sont les composantes de l'impulsion.\\
+\(\vec{p} = \gamma m \vec{v} = \frac{m\vec{v}}{\sqrt{1-\beta ^2} } \text{ avec } \beta = \frac{v}{c}\)\\
+Notamment, en édtudiant la première composoante, on obtient : 
+\[
+\frac{E}{c} = \gamma m c \Leftrightarrow E = \gamma m
+.\] 
+Valeur de la pseudo norme : 
+\begin{align*}
+    \tilde{p}\cdot \tilde{p} &= \frac{E^2}{c^2\, } - \vec{p}^2\\
+    &= \frac{\gamma ^2 m^2 c^{4}}{c^2} - \gamma ^2 m^2 v^2 \\
+    &= \gamma ^2 m^2 c^2 (1-\frac{v^2}{c^2}) \\
+    &= m^2c^2 \\
+    \tilde{p}\cdot \tilde{p} &= m^2c^2 \text{ (ce qui est une constante) } \square
+.\end{align*}
+\[
+\begin{pmatrix} 
+\frac{E}{c} \\ 
+p'_x \\ 
+p'_y \\ 
+p'_z  
+\end{pmatrix} 
+= 
+\begin{pmatrix} 
+\gamma & \pm\beta \gamma & 0 & 0 \\ 
+\pm\beta \gamma & \gamma & 0 & 0 \\ 
+0 & 0 & 1 & 0 \\ 
+0 & 0 & 0 & 1 
+\end{pmatrix} 
+\begin{pmatrix} 
+\frac{E}{c} \\ 
+p_x \\ 
+p_y \\ 
+p_z 
+\end{pmatrix}
+ = \mathcal{L} \begin{pmatrix} \frac{E}{c} \\ p_x \\ p_y \\ p_z \end{pmatrix} 
+\]
+\pagebreak
+\subsection{Pour \(v\ll c \Leftrightarrow \beta \ll 1 \)}
+
+\(\vec{p} = \frac{m\vec{v}}{\sqrt{1-\beta ^2}} \approx m\vec{v}  \) et \(E = \gamma mc^2 = \frac{mc^2}{\sqrt{1-\beta ^2} }\) Or \(x\ll_1 \implies (1+x)^{\alpha }\approx 1+\alpha x\)\\
+\[
+    \implies E \approx mc^2 \left[1 + \frac{1}{2} \frac{v^2}{c^2}\right] = mc^2 + \frac{1}{2} mv^2 \text{ (avec $mc^2$ l'énergie au repos)}.
+\]
+
+\(E_0 = mc^2 \) l'énergie au repos de la particule et \(E = \gamma mc^2\) est l'énergie totale de la particule.\(\implies E_c = E-E_0 = (\gamma -1)mc^2\)
+\subsection{Cas du photon}
+Le photon est "la particule" associée au CEM. Cette particule se propage à la vitesse de la lumière : \(v = c\)\\
+Or \(E = \gamma mc^2 \implies m =0 \text{ (pour avoir $E\neq \infty$)}\implies \) 1 photon n'est pas une particule matérielle.\\
+
+
+L'étude du CEM montre que le photon associé à un CEM de fréquence $\nu$  transporte une énergie : $E = h\nu = \hbar \omega \text{ avec } \omega = \frac{2\pi}{T} $.\\
+Or : \(E^2 = p^2c^2+m^2c^{4}\). Donc pour le photon, on a : \(E = pc  = h\nu \implies p = \frac{h\nu}{c}\).\\
+
+La direction de \(\vec{p}\) est la même que celle de l'onde, d'où : \(\vec{p} = \frac{h\nu}{c}\vec{u}\).\\
+On a bien : \(\tilde{p}\cdot \tilde{p} = \frac{E^2}{c^2}-\vec{p}^2 = 0\) donc la pseudo norme est bien un invariant.
+
+\section{Loi fondamentale de la dynamique}
+\subsection{Equation du mouvement}
+Peut-on préserver : \(\vec{f} = \frac{d\vec{p}}{dt}\)?\\
+Déja pour Newton l'impulsion \(\vec{p}\) et la vitesse \(\vec{v}\) sont deux concepts distincts. On peut avoir par exemple \(\vec{v}\) constant alors que \(\vec{p}\) varie (Par exemple avec une fusée qui perd de la masse mais dont la vitesse est constante).\\
+En relativité réstreinte on a : \(\vec{p} = \gamma m\vec{v} = \frac{m\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}\).\\
+\begin{align*}
+    \vec{f} &= \frac{d\vec{p}}{dt} \\
+    &= \frac{d}{dt} \left[\frac{m\vec{v}}{\sqrt{1-\frac{v^2}{c^2}} }\right] \\
+    &= \gamma m \frac{d\vec{v}}{dt} + \frac{m\vec{v}}{(1-\frac{v^2}{c^2})^{\frac{3}{2}}} \cdot \frac{1}{c^2} \cdot (\vec{v}\cdot \frac{d\vec{v}}{dt}) \\
+    &= \lambda \frac{d\vec{v}}{dt} + \mu \vec{v} (\text{ avec } \lambda \neq \mu )
+.\end{align*}
+
+Le vecteur force \(\vec{f}\) n'est pas colinéaire avec l'accélération \(\frac{d\vec{v}}{dt}\).\\
+On définit ainsi le 4-vecteur force : \(\tilde{f} = \frac{d\tilde{p}}{d\tau} \text{ avec } \tilde{p} : (\frac{E}{c};\vec{p})\)\\
+
+\begin{align*}
+    \implies \tilde{f} &= \frac{d\tilde{p}}{d\tau}\\
+    &= \frac{dt}{d\tau} \cdot \frac{d\tilde{p}}{dt}\\
+    &= \gamma \frac{d\tilde{p}}{dt}\\
+    &= \gamma \frac{d}{dt} \left[\frac{E}{c};\vec{p}\right]\\
+\end{align*} 
+Or : \(
+\begin{cases}
+    dE &= \vec{f}\cdot d\vec{r} = \vec{f}\cdot \vec{v}dt \\
+    d\vec{p} &= \vec{f}\cdot dt
+\end{cases}
+\)
+\[
+\implies \tilde{f}= \left[\gamma \vec{f}\cdot \vec{\beta}; \gamma \vec{f}\right]
+.\] 
+avec : \(\vec{\beta} = \frac{\vec{v}}{c} \implies \gamma = \frac{1}{\sqrt{1-\beta^2} }\)\\
+Et on a : 
+\begin{align*}
+    \tilde{f}\cdot \tilde{f} &= (\gamma \vec{f}\cdot \vec{\beta})^2 - (\gamma \vec{f})^2\\
+    &= \gamma ^2 \vec{f}^2 \vec{\beta}^2 - \gamma^2\vec{f}^2 \\
+    &= \gamma^2 \vec{f}^2(1-\beta^2) \\
+    &= -\vec{f}^2 \\
+    &=-f^2 \space \square
+.\end{align*}
+Si la vitesse par rapport à l'observateur est nulle, on a : \(\vec{v} = \vec{0}\implies \begin{cases}
+    \vec{\beta} &= \vec{0} \\
+    \gamma &= 1
+\end{cases}\).
+
+\[
+\implies \tilde{f} = \left[0;\vec{f}\right]
+.\] 
+On retrouve les forces classiques. L'introduction de \(\tilde{f}\) permer d'obtenir une loi de transformation des forces : 
+\[
+\tilde{f}' = \mathcal{L}\cdot \tilde{f} \text{ avec } \mathcal{L} = \begin{pmatrix} \gamma_e & \beta \gamma_e & 0 & 0\\ \beta \gamma_e &\gamma_e &0&0\\0&0&1&0\\0&0&0&1   \end{pmatrix} 
+.\] 
+
+\subsection{Théorème de l'énergie cinétique}
+En Relativité restreinte, les lois de la physiques ont la même forme, d'ou on a : \\
+\[
+\Delta E_c = W^{\vec{F}_{ext}}
+.\] 
+Pour un électron de masse \(m\) et de charge \(e<0\), accéléré dans un accélérateur linéaire soumis à une tension \(U_{BA}<0\) avec une vitesse initiale \(v_A = 0\), on a : \\
+
+En mécanique classique, on a
+\begin{align*}
+    &\Delta E_c = qU_{AB} = eU_{BA}>0\\
+    &\implies \frac{1}{2}m(v_B^2-v_A^2) = eU_{BA}\\
+    &\implies v_B = \sqrt{\frac{2eU_{BA}}{m}} \text{ et } U_{BA} = \frac{mv_B^2}{2e}
+.\end{align*}
+Or on a : \\
+\begin{align*}
+    e&\approx 1.6\cdot 10^{-19} \text{C} \sim 10^{-19}\\
+    m&\approx 9.1 \cdot 10^{-31} \text{kg} \sim 10^{-30}\\
+    v&\approx 10\% c \approx 3\cdot 10^{7} \text{m}\cdot \text{s}^{-1}\\
+    v^2&\approx (3\cdot 10^{7})^2 \sim 10^{15}\\
+    U_{BA} &\sim \frac{10^{-30}\cdot 10^{15}}{10^{-19}} \sim 10^{4} \text{V}
+.\end{align*}
+Ce qui est absurdément peu de tension pour atteindre des vitesses relativistes
+
+En relativité restreinte : \\
+\begin{align*}
+    &\Delta E_c = W^{\vec{F}_{ext}}\\
+    &\implies (\gamma -1)mc^2 = eU_{BA} \\
+    &\implies(\gamma -1) = \frac{eU_{BA}}{mc^2} \\
+    &\implies \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} = 1+ \frac{eU}{mc^2} \\
+    &\implies 1-\frac{v^2}{c^2} = \frac{1}{(1+\frac{eU}{mc^2})^2}\\
+    &\implies \frac{v^2}{c^2} = 1-\frac{1}{(1+\frac{eU}{mc^2})^2} \\
+    &\implies v^2 = c^2 \frac{(1+\frac{eU}{mc^2})^2-1}{(1+\frac{eU}{mc^2})^2} \\
+    &\implies v = c \frac{\sqrt{(1+\frac{eU}{mc^2})^2-1} }{1+\frac{eU}{mc^2}}
+\end{align*}
+On a : \(\begin{cases}
+    eU &\to E_c\\
+    mc^2 &\to E_{\text{de masse}} \to \text{inertie}
+\end{cases}\)\\
+Si \(\frac{eU}{mc^2}\ll 1\), l'énergie de masse est prépondérante, l'énergie cinétique, et donc la vitesse sont très faible.\\
+Alors, \(v\approx c \frac{\sqrt{1+ 2\cdot \frac{eU}{mc^2}}-1}{1} \approx \sqrt{\frac{2eU}{m}} \) On retrouve le can classique.\\
+Si \(\frac{eU}{mc^2}\gg 1\) on se trouve dans le cas ultra relativiste. On a alors \((1+\frac{eU}{mc^2})^2-1 \approx (1+\frac{eU}{mc^2})^2\), D'où, \(v\approx c \cdot \frac{1+\frac{eU}{mc^2 }}{1+\frac{eU}{mc^2}} \approx c\). On a alors \(v\to c\)\\
+Fin du cours.
+\end{document}
+
+
+
+
+
+
+
+
+
+

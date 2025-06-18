@@ -1,0 +1,108 @@
+\chapter{Primitives et équations differentielles}
+\section{Equations differentielles de type : \(y' = f\)}
+
+\begin{definition}[Primitive]\label{def:primitive}
+    Soit : \begin{align*}
+        F: I &\longrightarrow \mathbb{R} \\
+         x &\longmapsto F(x) 
+    \end{align*}
+    \(F\) est une primitive de \(f\) ssi \(F'(x) = f(x)\). On note \(F' = f\) 
+\end{definition}
+
+\begin{theorem}[Primitive d'une fonction continue]\label{thm:pcont}
+    Si \(f\) est continue, alors l'équation \(y' = f\)  admet au moins une solution.
+\end{theorem}
+
+\begin{theorem}[Unicité de la primitive]\label{thm:uniprim}
+    Deux primitives d'une même fonction sont égales à une constante près. 
+\end{theorem}
+
+\begin{explanation}
+    Soient \(F_{1}\) et \(F_{2}\), deux primitives de f. On a : \(F_{1}' = f\) et \(F_{2}' = f\). D'ou, par différence de fonctions dérivables, \(F_{1}-F_{2}\) est dérivable.\\
+    \((F_{1}-F_{2})' = F_{1}'-F_{2}' = f-f = 0\) D'ou on a : \(F_{1}-F_{2} = a, a \in \mathbb{R}\)      
+\end{explanation}
+\begin{corollary}[Propriété : unicité de la solution]\label{col:unisol}
+    Si \(x_{0} \in I \subset \mathbb{R}\) et \(F(x_{0}) = y_{0}\), alors on a : \\
+    \[
+        \exists! F: x \mapsto F(x), F' = f
+    \]  
+\end{corollary}
+
+\begin{explanation}
+    Supposons : \(\exists (F;G) \in \mathcal{F}(\mathbb{R},\mathbb{R})^{2} \text{ t.q. }\) \(\begin{cases}
+        &F' = G' = f\\
+        &F(x_{0}) = G(x_{0}) = y_{0}\\
+        &F \neq G
+    \end{cases}\)\\
+    Donc, d'après \autoref{thm:uniprim} \(\exists a \in \mathbb{R}^{*}, F(x) = G(x) + a\) 
+    \begin{align*}
+        F(x_{0}) = G(x_{0}) & \iff y_{0} = y_{0} + a\\
+        & \iff a = 0 \text{ absurde!}
+    \end{align*} 
+    
+    Donc \(F=G\) 
+\end{explanation}
+\section{Recherche de primitives}
+Pour identifier une primitive de \(f\) on peut : 
+\begin{enumerate}
+    \item Reconnaitre la dérivée d'une fonction de réference
+    \item Adapter éventuellement le coefficient
+    \item Reconnaitre une des formules suivantes : \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c}
+            \toprule
+                Fonction reconnue &  Primitive \\
+            \midrule
+                \(\frac{u'}{u}\)  &  \(\ln \lvert u \rvert \)  \\
+                \(u'u\)  &  \(\frac{1}{2}u^{2}\)  \\
+                \(u'u^{n}\) &  \(\frac{u^{n+1}}{n+1}\)  \\
+                \(u' \cdot v' \circ u\) & \(v \circ u\)  \\
+            \bottomrule
+        \end{tabular}
+        \caption{Formules de primitives}
+        \label{tab:primitives}
+    \end{table}
+\end{enumerate}
+\begin{corollary}[Propriétés de la primitive]\label{col:propprim}
+    \begin{itemize}
+        \item Si \(F\) est une primitve de \(f\), alors \(aF\) est une primitive de \(af\)
+        \item Si \(F\) et \(G\) sont des primitives de \(f\) et \(g\) respectivement, alors \(F+G\) est une primitive de \(f+g\)  
+    \end{itemize}
+\end{corollary}
+\begin{eg}[Exemples]\label{eg:primitives}
+    \begin{itemize}
+        \item \(f_{1}(x) =  \frac{7x}{x^{2}+1} \implies F_{1}(x) = \frac{7}{2} \ln \lvert x^{2}+1 \rvert \) 
+        \item \(f_{2}(x) = 2x(x^{2}+3) \implies F_{2}(x) = \frac{1}{2}(x^{2}+3)^{2}\) 
+        \item \(f_{3}(x) = \cos x \sin^{3}x \implies F_{3}(x) = \frac{1}{4}\sin^{4}(x)\) 
+        \item \(f_{4}(x) = x^{3}\sqrt{x} = x^{\frac{7}{2}}, \implies F_{4}(x) = \frac{2}{9}x^{\frac{9}{2}} = \frac{2}{9}x^{4}\sqrt{x}\)
+    \end{itemize}
+\end{eg}
+
+\section{Equations differentielles de la forme \(y' = ay+f\) ou \(y' = ay+f\)}
+\subsection{Equation de la forme \(y' = ay\) }
+L'équation différentielle \(y' = ay\) est une equation différentielle du premier ordre linéaire et homogène à coefficient constant. Cette équation \((E_{0})\) s'écrit également souvent \(y'-ay = 0\)
+\begin{corollary}[Propriétés]\label{col:sol_1}
+    Les solutions de \((E_0)\) sont de la forme : 
+    \[
+        \lambda e^{ax}, C \in \mathbb{R}
+    \] 
+    Si on ajoute la condition initiale \(y(x_{0}) = y_{0}\), on a une solution unique.
+\end{corollary} 
+
+\begin{corollary}[Propriété]\label{col:homo}
+    Si \((E_{0})\) a deux solutions \(y_{1}\) et \(y_{2}\) : \(\forall k \in \mathbb{R}\) \(ky_{1}\) est solution et \(y_{1}+y_{2}\) est solution.      
+\end{corollary}
+\subsection{Equation de la forme \(y' = ay + b\) }
+
+L'équation différentielle \(y' = ay+b\) est appelée équation differentielle linéaire du premier ordre à coefficient constant avec second membre constant. Elle s'écrit également \(y'-ay = b\).\\ 
+\begin{corollary}[Propriétés]\label{col:sol_2}
+    Les solutions sont de la forme : 
+    \[
+        y = \lambda e^{ax} -\frac{b}{a}
+    \]
+\end{corollary}
+
+\begin{eg}[Exemple]\label{eg:resol_1}
+    Résoudre l'équation différentielle \((E) \iff -2y' = 7y+6\).\\
+    On a : \((E) \iff y' = -\frac{7}{2}y -3\). On reconnait une équation de la forme \(y' = ay+b \) avec \(a=-\frac{7}{2}\) et \(b = -3\). \(\frac{b}{a} = \frac{6}{7}\). Les solutions sont donc de la forme \(y(x) = \lambda e^{-\frac{7}{2}x}+ \frac{6}{7}, \lambda \in \mathbb{R}\)
+\end{eg}

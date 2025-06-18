@@ -1,0 +1,48 @@
+\contentsline {chapter}{\numberline {1}Différents systèmes de coordonnées}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Coordonnées cartésiennes}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Coordonnées polaires}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Coordonnées cylindropolaires}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Coordonnées sphériques}{6}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Grandeurs cinématiques}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Quantité de mouvement}{7}{section.2.1}%
+\contentsline {subsubsection}{1\textsuperscript {ère} application : chez les particules}{7}{section*.6}%
+\contentsline {subsubsection}{Application : recul d'une arme à feu}{8}{section*.7}%
+\contentsline {subsubsection}{PFD pour un système ouvert (fusée)}{8}{section*.8}%
+\contentsline {subsection}{\numberline {2.1.1}Moment cinétique}{8}{subsection.2.1.1}%
+\contentsline {subsubsection}{En coordonnées cylindropolaires}{9}{section*.9}%
+\contentsline {subsection}{\numberline {2.1.2}Application des théorèmes de la physique}{10}{subsection.2.1.2}%
+\contentsline {subsubsection}{1ère Méthode : le PFD}{10}{section*.10}%
+\contentsline {subsubsection}{2e méthode, conservation de l'énergie mécanique}{10}{section*.11}%
+\contentsline {subsubsection}{3e méthode : TMC}{11}{section*.12}%
+\contentsline {section}{\numberline {2.2}Energie mécanique d'un point matériel. Petits mouvements au voisinage d'un point d'équilibre stable}{12}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}\(E_{m}\) d'un point matériel}{12}{subsection.2.2.1}%
+\contentsline {subsubsection}{Théorème de l'énergie cinétique}{12}{section*.13}%
+\contentsline {paragraph}{Puissance et travail d'une force}{12}{section*.14}%
+\contentsline {paragraph}{Théorème de l'énergie cinétique}{12}{section*.15}%
+\contentsline {subsection}{\numberline {2.2.2}Forces conservatives et \(E_{p}\) }{13}{subsection.2.2.2}%
+\contentsline {paragraph}{Relation entre force et \(E_{p}\) associée}{14}{section*.16}%
+\contentsline {subsubsection}{Energie mécanique}{15}{section*.17}%
+\contentsline {subsection}{\numberline {2.2.3}Equilibre et stabilité}{15}{subsection.2.2.3}%
+\contentsline {subsubsection}{Raisonnement sur les forces}{15}{section*.18}%
+\contentsline {subsubsection}{Raisonnement sur l'énergie potentielle}{15}{section*.19}%
+\contentsline {subsubsection}{Exemples}{16}{section*.20}%
+\contentsline {subsection}{\numberline {2.2.4}Petites oscillations au voisinage d'une position d'équilibre stable}{16}{subsection.2.2.4}%
+\contentsline {subsubsection}{Approche générale d'oscillateur harmonique}{16}{section*.21}%
+\contentsline {chapter}{\numberline {3}Mouvement dans un champ de force centrale newtonien}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Force centrale conservative}{19}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Force centrale}{19}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Force conservative}{19}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Champ de force centrale newtonien}{20}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Lois de conservation}{20}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Conservation du moment cinétique : loi des aires}{20}{subsection.3.2.1}%
+\contentsline {subsubsection}{Inteprétation : Loi des aires}{21}{section*.24}%
+\contentsline {subsection}{\numberline {3.2.2}Conservation de l'énergie mécanique}{22}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Discussion graphique}{22}{subsection.3.2.3}%
+\contentsline {subsubsection}{1er cas : si \(k>0\).}{22}{section*.26}%
+\contentsline {subsubsection}{2eme cas : \(k<0\)}{23}{section*.28}%
+\contentsline {paragraph}{Si \(E_{m} \geq 0\)}{23}{section*.30}%
+\contentsline {paragraph}{Si \(E_{m} < 0 \) }{23}{section*.31}%
+\contentsline {section}{\numberline {3.3}Mouvment dans un champ de force centrale attractive}{23}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Formule de Binet}{23}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Trajectoires}{24}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Vitesse aérolaire, troisième loi de Kepler}{26}{subsection.3.3.3}%

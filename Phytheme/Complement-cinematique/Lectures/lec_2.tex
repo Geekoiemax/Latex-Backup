@@ -1,0 +1,536 @@
+\chapter{Grandeurs cinématiques}
+\section{Quantité de mouvement}
+
+\begin{definition}[Quantité de mouvement]
+    Par définition, la quantité de mouvement d'un point matériel \(M\) de masse \(m\) et animé d'une vitesse \(\vv{v}\) dans le réferentiel d'étude est :
+    \[
+        \vv{p}(t) = m\vv{v}
+    \] 
+\end{definition}
+
+\begin{theorem}[Principe fondamentale de la dynamique]
+    Dans un réferentiel galiléen, on a : 
+    \[
+        \sum \vv{F}_{ext} = \frac{d}{dt}\vv{p}
+    \]
+\end{theorem}
+
+\begin{corollary}[Cas d'un système isolé]
+    Si le système est isolé ou pseudo-isolé, on a : 
+    \[
+        \sum \vv{F}_{ext} = \vv{0} \implies \frac{d\vv{p}}{dt} = 0 \implies  \vv{p} = \text{ cste}
+    \]
+\end{corollary}
+
+\begin{corollary}[Cas d'un système fermé]
+    Dans le cas d'un système fermé (\(m= \text{ cste}\)) on a : 
+    \[
+        \sum \vv{F}_{ext} = \frac{d\vv{p}}{dt} = m\vv{a}
+    \]
+\end{corollary}
+
+\subsubsection{1\textsuperscript{ère} application : chez les particules}
+%SCHEMA
+
+La vitesse (et donc $\vv{p}$) dépend du réferentiel. \par
+La Bille(1) a une vitesse initiale $\vv{v}_1$ et la bille(2) est immobile. \par
+Hypothèses : 
+\begin{enumerate}
+    \item Toutes les billes sont identiques (elles ont la même masse)
+    \item on suppose le choc elastique (il y a donc conservation de l'énergie cinétique)
+\end{enumerate}
+Référentiel : terrestre supposé galiléen. \par
+Bilan des forces : $\vv{P} = m\vv{g} \text{ et } \vv{R}_n (\text{On a :} \vv{P}+\vv{R}_n = 0)$ \par
+D'après le principe d'inertie, $\sum \vv{F}_{ext} = 0$. Avant et après le choc, $\vv{P}_{tot}$ et E\textsubscript{c} sont conservées : 
+\[
+m_1\vv{v}_1 + m_2 \vv{v}_2 = m_1 \vv{v'}_1 + m_2 \vv{v'}_2 (\text{Or on a : } m_1 = m_2 = m \text{ et } \vv{v}_2 =0) 
+.\] 
+D'ou : $\vv{v}_1 = \vv{v'}_1 +\vv{v'}_2$
+
+Conservation de l'énergie cinétique : 
+\[
+\frac{1}{2}mv_1^2 + \frac{1}{2} mv_2^2 = \frac{1}{2}mv_1'^2 + \frac{1}{2}mv_2'^2
+.\] 
+D'où : \(v_1^2 = v_1'^2 + v_2^2 \) \par
+Or : \(\begin{cases}
+    v_1^2 = \vv{v}_1^2 = (\vv{v}_1' + \vv{v}_2')^2 = v_1'^2 + v_2'^2 + 2\vv{v}_1' \cdot \vv{v}_2'\\
+    v_1^2 = v_1'^2 + v_2'^2
+\end{cases} \) \par
+il faut donc : \(\vv{v}_1' \cdot \vv{v}_2'^2 = 0\) \par
+2 solutions : 
+\begin{enumerate}
+    \item \(
+    \begin{cases}
+        \vv{v'}_1 \neq 0 \\ \vv{v'}_2 = \vv{0}
+    \end{cases} \text{ ou } \begin{cases}
+        \vv{v'}_1 = \vv{0}\\ \vv{v'}_2 \neq \vv{0}
+    \end{cases}
+    .\)
+    \item \(\vv{v'}_1 \perp \vv{v'}_2\) (les deux billes forment un angle de $\frac{\pi}{2}$)
+\end{enumerate}
+
+\subsubsection{Application : recul d'une arme à feu}
+
+m : masse du projectile et M : masse du cannon. 
+\[
+    \vv{P}_{\text{avant}} = \vv{0} = \vv{P}_{\text{après}} = m\vv{v} + M\vv{v}
+\]
+D'où : \(\vv{v}_1 = -\frac{m}{M}\vv{v}_2\)
+
+\subsubsection{PFD pour un système ouvert (fusée)}
+
+%Schema 
+
+\[
+\begin{cases}
+    \vv{p}(t) &= m\vv{v}  \\
+    \vv{p}(t+dt)&= (m-dm)(\vv{v}) + dm(\vv{v}+d\vv{}) \\
+\end{cases}
+.\] 
+\begin{align*}
+    d\vv{p} &= \vv{p}(t+dt) -\vv{p}(t) \\
+    &= m\vv{v} + md\vv{v} -dmd\vv{v} + dm\vv{v} + dmd\vv{v} + dm\vv{v}_e - m\vv{v} \\
+    &= md\vv{v} + dm\vv{v}_e
+.\end{align*}
+
+Donc : \( \frac{d\vv{p}}{dt} = m\frac{d\vv{v}}{dt} + \frac{dm}{dt} \vv{v}_e \) \par
+
+Donc : \(m \frac{d\vv{v}}{dt} = \frac{d\vv{p}}{dt} - \frac{dm}{dt} \vv{v}_e \) \par
+
+D'ou : \(f_{\vv{p}} = -\frac{dm}{dt}\vv{v}_e\) (force de poussée de la fusée)
+\subsection{Moment cinétique}
+
+\begin{notation}
+    On note le produit vectoriel \( \wedge \), entre deux vecteurs non colinéaires, le produit qui renvoie un troisième vecteur normal aux deux premiers.  
+\end{notation}
+
+\begin{corollary}[Vecteurs unités]
+    En coordonnées cartésiennes, \autoref{def:coordcart}, on a : 
+    \begin{eqnarray*}
+        \vv{i} \wedge \vv{j} &=& \vv{k} \\
+        \vv{j} \wedge \vv{k} &=& \vv{i} \\
+        \vv{k} \wedge \vv{i} &=& \vv{j}
+    \end{eqnarray*}
+\end{corollary}
+
+\begin{corollary}[Propriétés du produit vectoriel]
+    On a  : 
+    \begin{itemize}
+        \item \(\vv{u} \wedge \vv{v} = -(\vv{v} \wedge \vv{u})\)
+        \item \(\vv{u} \wedge \vv{u} = \vv{0}\)
+        \item \(\vv{u} \wedge \vv{v} \wedge \vv{w} = (\vv{u} \wedge \vv{v}) \wedge \vv{w} = \vv{u} \wedge (\vv{v} \wedge  \vv{w})\)   
+        \item \(\lambda \vv{u} \wedge \vv{v} = \vv{u} \wedge  \lambda \vv{v} = \lambda (\vv{u} \wedge \vv{v})\)
+        \item \(\vv{u} \wedge  \vv{v} \perp (\vv{u},\vv{v})\)  
+    \end{itemize}
+\end{corollary}
+
+\begin{definition}[Moment cinétique]
+    On définit le moment cinétique, \(\vv{\sigma}_{0} = \vv{L}_{0}\), d'un point matériel \(M\) de masse \(m\) animé d'une vitesse \(\vv{v}\) comme suit : 
+    \[
+        \vv{L}_{0} = \vv{OM} \wedge m\vv{v}
+    \]  
+\end{definition}
+
+\subsubsection{En coordonnées cylindropolaires}
+
+\begin{corollary}[Expression du moment cinétique ]
+    On considère que \(\vv{OM}\) est d'altitude nulle. D'après, \autoref{copolunivec}, on a : 
+    \[
+        \vv{OM} = r\vv{u}_{r}
+    \]
+    et : 
+    \[
+        \vv{v} = \frac{d}{dt}\vv{OM} = \dot{r} \vv{u}_{r} + r \dot{\theta}\vv{u}_{\theta}
+    \]
+    Or,
+    \[
+        \vv{L}_{0} = \vv{OM} \wedge m\vv{v}
+    \]
+    D'où : 
+    \begin{eqnarray*}
+    \vv{L}_0 &=& \vv{OM} \wedge m\vv{v} \\
+    &=& r\vv{u}_r \wedge m(\dot{r}\vv{u}_r + r\dot{\theta}\vv{u}_\theta) \\
+    &=& rm(\dot{r}\vv{u}_r \wedge \vv{u}_r +\vv{u}_r\wedge r\dot{\theta}\vv{u}_\theta) \\
+    &=& rm\cdot r\dot{\theta}\vv{u}_z \\
+    \vv{L}_0 &=& mr^2\dot{\theta}\vv{u}_z
+.\end{eqnarray*}
+\end{corollary}
+
+\begin{corollary}[Conservation du moment cinétique]\label{col:TMC}
+    On cherche à trouver quand est ce que \(\vv{L}_{0} = \text{ cset} \iff \frac{d}{dt}\vv{L}_{0} = 0\) 
+    On rappelle que : 
+    \begin{eqnarray*}
+        \vv{u} \wedge  \vv{u} &=& \vv{0} \\
+        \vv{v} &=& \frac{d}{dt}\vv{OM} \\
+        m &=& \text{ cste}. \\
+        \vv{f} &=& m\frac{d}{dt}\vv{v} \\
+    \end{eqnarray*}
+    D'où : 
+    \begin{eqnarray*}
+        \frac{d}{dt}\vv{L}_{0} &=& \frac{d}{dt}(\vv{OM} \wedge m\vv{v}) \\
+        &=& \frac{d}{dt}\vv{OM} \wedge m\vv{v} + \vv{OM} \wedge \frac{d}{dt}m\vv{v} \\
+        &=& \vv{0} + \vv{OM} \wedge \vv{f} \\
+        &=& \vv{OM} \wedge \vv{f}
+    \end{eqnarray*}
+    Ainsi, \(\frac{d}{dt}\vv{L}_{0} = \vv{0} \iff \vv{OM} \wedge \vv{f} = \vv{0} \iff \vv{OM} \propto \vv{f}\) 
+\end{corollary}
+
+\begin{definition}[Moment cinétique d'une force]
+    On note \(M_{0}(f)\) le moment cinétique d'une force \(f\). 
+    \begin{theorem}[Moment cinétique d'une force]
+        Soit M un point matériel de masse \(m\) subissant uniquement une force \(f\). On a :
+        \[
+            M_{0}(f) = \frac{d}{dt}\vv{L}_{0}  = \vv{OM} \wedge  \vv{f}
+        \]
+    \end{theorem} 
+\end{definition}
+
+\begin{corollary}[Conservation du moment cinétique]
+    Pour un point \(M\) de masse \(m\) animé d'une vitesse \(\vv{v}\) soumis à une unique force \(f\). Le moment cinétique \(\vv{L}_{0}\) se conserve alors lorsque : 
+    \[
+        M_{0}(f) = 0 \iff \vv{OM} \propto \vv{f}
+    \]  
+\end{corollary}
+
+\begin{eg}[Conservation du moment cinétique]
+    Dans un champ de force centrale, où \(\vv{f} \propto \vv{u}_{r}\), le moment cinétique se conserve alors. C'est le cas, par exemple de la force gravitationelle, \(\vv{F}_{G} = G \frac{mM}{r^{2}} \cdot \vv{u}_{r}\), et de la loi de Coulomb, \(\vv{F}_{e} = \frac{1}{4 \pi \varepsilon_{0}} \frac{qq'}{r^{2}}\). 
+\end{eg}
+
+
+\subsection{Application des théorèmes de la physique}
+
+On considère un pendule de longueur \(l\) constitué d'un fil inextensible de longueur \(l\), de masse négligeable, et de l'objet \(M\) de masse \(m\) assimilé à un point matériel.\par
+A \(t=0s\), on l'écarte d'un angle \(\theta_0\) et on le lâche sans vitesse initiale. On néglige les frottements.\par
+On cherche à établir l'équation du mouvement \(\iff \theta(t)\)
+\subsubsection{1ère Méthode : le PFD} 
+\underline{Réferentiel} : terrestre supposé galiléen \par
+\underline{Système} : {objet (M)}\par
+BDF : Le poids \(\vv{P} = m\vv{g}\) et la tension du fil \(\vv{T}\).\par
+
+On projette les vecteurs : \par
+\begin{equation*}
+   \vv{P}\begin{pmatrix} mg \cos\theta \\ -mg \sin\theta \end{pmatrix} \text{ et } \vv{T}\begin{pmatrix} -T\\ 0 \end{pmatrix} 
+\end{equation*}
+
+D'après le PFD : \(m\vv{a} = \vv{P}+\vv{T}\)\par
+Or en coordonnées polaires : 
+
+
+\begin{align*}
+    \vv{v} &= \dot{r}\vv{u}_r + r\dot{\theta}\vv{u}_\theta\\
+    \vv{a} &= (\ddot{r}-r\dot{\theta}^2)\vv{u}_r + (r\dot{\theta} + 2\dot{r}\dot{\theta})\vv{u}_\theta 
+.\end{align*}
+
+
+Or le fil étant inextensible, on a : \(r = l = cste\) (donc \(\dot{r} = \ddot{r} = 0\))\par
+D'où : 
+
+\begin{align*}
+    \vv{v} &= l\dot{\theta} \vv{u}_\theta \\
+    \vv{a} &= -l\dot{\theta}\vv{u}_r + l\ddot{\theta}\vv{u}_\theta 
+.\end{align*}
+Or : \(m\vv{a} = \vv{P}+\vv{T}\)\par
+D'ou : 
+\[
+\begin{cases}
+    -ml\dot{\theta} = mg \cos \theta -T = 0\\
+    ml\ddot{\theta} = -mg\sin \theta 
+\end{cases}
+.\] 
+\[
+\implies \ddot{\theta}+\frac{g}{l}\sin \theta = 0
+.\] 
+
+\subsubsection{2e méthode, conservation de l'énergie mécanique}
+
+\(\Delta E_m = \Sigma \vv{F}_{nc} = 0\) car à tout instant, \(W\vv{T} = \vv{T}\cdot dl = 0\). \par
+
+
+
+\begin{align*}
+   \implies E_m &= \frac{1}{2}mv^2 + E_{pp}\\
+   \intertext{Or : $(\vv{v} = \dot{r}\vv{u}_r +r\dot{\theta}\vv{u_8}_\theta) = l\dot{\theta}\vv{u}_\theta $}\\
+    &= \frac{1}{2}m(l\dot{\theta})^2 +mgl(1-\cos\theta) \\
+.\end{align*}
+
+Or :
+\begin{align*}
+    \frac{dE_m}{dt} &= 0 \\
+    &= \frac{1}{2} ml^2\cdot 2\dot{\theta}\ddot{\theta}+mgl(-1)\dot{\theta}(-\sin\theta)\\
+    \implies 0 &= ml^2\dot{\theta}\ddot{\theta} + mgl\dot{\theta}\sin\theta \\
+    \iff 0&= ml^2\dot{\theta} \left[\ddot{\theta} +\frac{g}{l}\sin \theta \right]\\
+    \iff 0&= \ddot{\theta} +\frac{g}{l}\sin\theta 
+.\end{align*}
+
+\subsubsection{3e méthode : TMC}
+
+\begin{align*}
+    \frac{d\vv{L}_0}{dt} &= \vv{OM}\wedge \vv{f} \\
+    &= \vv{OM} \wedge \vv{P} + \vv{OM}\wedge \vv{T} \\
+.\end{align*}
+
+\begin{align*}
+    \vv{L}_0 &= \vv{OM} \wedge m\vv{v} \\
+    &= l\vv{u}_r \wedge m(l\dot{\theta}\vv{u}_\theta) \\
+    &= ml^2\dot{\theta}\vv{u}_z \\
+.\end{align*}
+
+\begin{align*}
+    \vv{\mathcal{M}}_0(\vv{P}) &= l\vv{u}_r\wedge (mg\cos\theta \vv{u}_r -mg\sin\theta \vv{u}_\theta) \\
+    &= -mgl\sin\theta \vv{u}_z\\
+    \implies \frac{d\vv{L}_0}{dt} &= \vv{\mathcal{M}_0}(\vv{P}) \\
+    &= ml^2\ddot{\theta} \\
+    &= -mgl\sin \theta \\
+    \implies 0&= \ddot{\theta} + \frac{g}{l}\sin\theta
+.\end{align*}
+\newpage
+
+\section{Energie mécanique d'un point matériel. Petits mouvements au voisinage d'un point d'équilibre stable}
+\subsection{\(E_{m}\) d'un point matériel}
+\subsubsection{Théorème de l'énergie cinétique}
+\paragraph{Puissance et travail d'une force}
+
+\begin{definition}[Puissance d'une force]
+    La puissance \(P\) d'une force \(\vv{f}\) qui s'applique à un point matériel de masse \(m\) évolutant à une vitesse \(\vv{v}\) dans le réferentiel d'étude est : 
+    \[
+        P = \vv{f} \cdot \vv{v}
+    \]  
+\end{definition}
+
+\begin{remark}[Remarques]
+    \begin{itemize}
+        \item \(1\unit{N} = 1\unit{kg.m.s^{-2}}\)
+        \item \(1\unit{W} = 1\unit{kg.m^{2}.s^{-3}}\)
+        \item  \(P = \lVert \vv{f} \rVert \cdot \lVert \vv{v} \rVert \cdot \cos (\vv{f},\vv{v})  \)
+        \begin{itemize}
+            \item Si \(P>0\), alors \(\vv{f}\) est motrice
+            \item Si \(P<0\), alors \(\vv{f}\) est résistante  
+        \end{itemize} 
+    \end{itemize}
+\end{remark}
+
+
+\begin{definition}[Travail élémentaire]
+    Le travail élémentaire \(\delta W\) entre 2 intants d'une force \(\vv{f}\) s'exerçant sur le point \(M\) est : 
+    \[
+        \delta W^{\vv{f}} = P \cdot dt
+    \]   
+    \begin{corollary}[Expression alternative]
+        \begin{eqnarray*}
+            \delta W^{\vv{f}} &=& P \cdot dt \\
+            &=& \vv{f} \cdot \vv{v} dt \text{ Or: } \vv{v} = \dot{\vv{OM}}\\
+            &=& \vv{f} \cdot \frac{d \vv{OM}}{dt} dt \\
+            &=& \vv{f} \cdot d \vv{OM} \\
+            &=& \vv{f} \cdot d\vv{l}
+        \end{eqnarray*}
+        Avec : 
+        \begin{itemize}
+            \item \(\delta W^{\vv{f}}\) en \(\unit{J}\)
+            \item \(\vv{f}\) en \(\unit{N}\)
+            \item \(d\vv{l}\) en \(\unit{m}\)     
+        \end{itemize}
+    \end{corollary}
+\end{definition}
+
+\begin{remark}[Entre deux instants connus]
+    Entre deux instants \(t_{1}\) et \(t_{2}\), ou entre deux positions \(M_{1}\) et \(M_{2}\), le travail d'une force \(\vv{f}\) vaut : 
+    \[
+        W_{ 1 \to 2}^{\vv{f}} = \int_{t_{1}}^{t_{2}} P  dt \text{ ou } W_{1 \to 2}^{\vv{f}} = \int_{m_{1}}^{M_{2}} \vv{f}  d \vv{OM}
+    \]     
+\end{remark}
+
+\paragraph{Théorème de l'énergie cinétique}
+Dans un réferentiel galiléen, le PFD affirme : 
+\[
+    \vv{f} = \frac{d\vv{p}}{dt} = \frac{d}{dt}(m\vv{v})
+\]
+Pour un point matériel, \(m = \text{ cste } \), alors  :
+\[
+    \vv{f} = m\vv{a} = m \frac{d\vv{v}}{dt}
+\] 
+
+Or, 
+\begin{eqnarray*}
+    P(\vv{f}) &=& \vv{f} \cdot \vv{v} \\
+    &=& m \frac{d\vv{v}}{dt} \cdot \vv{v} \\
+    &=& \frac{d}{dt}\left( \frac{1}{2} m \vv{v}^{2} \right) \\
+    \text{ En effet, }  && \frac{d}{dt}(\vv{v}^{2}) = \frac{d\vv{v}}{dt} \cdot \vv{v} + \vv{v} \cdot \frac{d\vv{v}}{dt} = 2 \vv{v} \cdot \frac{d\vv{v}}{dt}
+\end{eqnarray*}
+
+\begin{theorem}[Théorème de l'énergie cinétique]
+    On a donc, pour un point matériel \(M\), 
+    \[
+        P(\vv{f}) = \frac{dE_{c}}{dt}
+    \]
+    Soit,
+    \[
+        E_{c}(t_{2}) - E_{c}(t_{1}) = \int_{t_{1}}^{t_{2}} P(\vv{f})  dt = \int_{M_{1}}^{M_{2}} \vv{f}  d\vv{l} = W_{m_{1} \to  M_{2}}^{\vv{f}}
+    \]
+\end{theorem}
+
+\subsection{Forces conservatives et \(E_{p}\) }
+
+\begin{definition}[Force conservative]
+    Une force est dite conservative si son travail ets indépendant du chemin suivi. 
+    \begin{eg}[Le poids]
+        \(\vv{P} = m\vv{g} = -mg\vv{k}\)
+        \begin{eqnarray*}
+            W^{\vv{P}}_{M_{1} \to M_{2}} &=& \int_{M_{1}}^{M_{2}} \vv{P}  d \vv{OM} \\
+            &=& \int_{M_{1}}^{M_{2}} -mg\vv{k}  (dx \vv{i} + dy \vv{j} + dz \vv{k}) \\
+            &=& \int_{M_{1}}^{M_{2}} -mg dz \\
+            &=& -mg (z_{2}-z_{1}) \\
+            &=& -mg (z_{1} - z_{2})
+        \end{eqnarray*}
+    \end{eg}
+
+    \begin{eg}[Interaction électrostatique]
+        Loi de Coulomb : \(\vv{F} = \frac{1}{4 \pi \varepsilon_{\text{0}}} \frac{q_{1}q_{2}}{r^{2}} \vv{u}_{r}\)
+        \begin{eqnarray*}
+            W_{M_{1} \to M_{2}}^{\vv{F}_{e}} &=& \int_{M_{1}}^{M_{2}} \frac{1}{4 \pi \varepsilon_{\text{0}}} \vv{u}_{r} d \vv{OM} \\
+            \text{ En coordonnées sphériques } && : d \vv{OM} = dr \vv{u}_{r} + rd \theta \vv{u}_{\theta} + r \sin \theta d \phi \vv{u}_{\phi} \\
+            W_{M_{1} \to M_{2}}^{\vv{F}_{e}} &=& \int_{M_{1}}^{M_{2}} \frac{1}{4 \pi \varepsilon_{\text{0}}} \frac{q_{1}q_{2}}{r^{2}} dr \\
+            &=& \frac{q_{1}q_{2}}{4 \pi \varepsilon_{\text{0}}} \int_{M_{1}}^{M_{2}} \frac{1}{r^{2}}  dr \\
+            &=& \frac{q_{1}q_{2}}{4 \pi \varepsilon_{\text{0}}} \left[ -\frac{1}{r} \right]^{M_{2}}_{M_{1}} \\
+            &=& \frac{q_{1}q_{2}}{4 \pi \varepsilon_{\text{0}}} \left[ \frac{1}{r_{1}} - \frac{1}{r_{2}} \right] \\
+        \end{eqnarray*}
+    \end{eg}
+\end{definition}
+
+\begin{definition}[Energie potentielle]
+    Il apparait dans ces exemples qu'il existe une fonction \(E_{p}\), apellée énergie potentielle, définie en tout point de l'espace telle que : 
+    \[
+        \Delta E_{p} = E_{p_{2}} - E_{p_{1}} = -W^{\vv{f}}_{1 \to 2} 
+    \]
+    A toute force conservative, on peut associer une énergie potentielle ne dépendant que des coordonnées de position.
+\end{definition}
+
+\paragraph{Relation entre force et \(E_{p}\) associée}
+
+\begin{definition}[Gradient]
+    On définit un opérateur mathématique le quotient noté \(\vv{\text{ grad } } \) ou \(\vv{\grad }\) tel que : 
+    \[
+        df = \vv{\grad }f \cdot d\vv{l}
+    \]   
+    \[
+        \vv{\grad }f = \begin{pmatrix}
+            \frac{\partial f}{\partial x } \\
+            \frac{\partial f}{\partial y }\\
+            \frac{\partial f}{\partial z}  \\
+        \end{pmatrix}
+    \]
+    \begin{notation}
+        Ou \(\frac{\partial f}{\partial x}\) est la dérivée partielle par rapport à \(x\) : 
+        \begin{eg}[Exemple]
+            \[
+                \frac{\partial }{\partial x} \left( x^{2}+xy^{2}  \right) = 2x + y^{2}
+            \]
+        \end{eg}
+    \end{notation}
+\end{definition}
+
+\begin{notation}
+    A partir de maintenant, on notera \(\vv{\grad }\) avec \(\grad \)  
+\end{notation}
+
+\begin{corollary}[Application à l'énergie potentielle]
+    Par définition du gradient, on a : 
+    \[
+        dE_{p} = \grad E_{p} \cdot d \vv{OM}
+    \]
+    La force conservative s'obtient par dérivation de l'énergie potentielle selon les trois coordonnées et : 
+    \[
+        \vv{f}_{c} = -\grad E_{p}
+    \]
+\end{corollary}
+
+\begin{corollary}[Evolution de la position]
+    Le gradient en un point est dirigé dans le sens de la plus grande croissance de l'énergie potentielle. Il découle de cette relation qu'une force conservative tend à faire évoluer le système dans le sens de la minimisation de son énergie potentielle. 
+\end{corollary}
+
+\subsubsection{Energie mécanique}
+
+\begin{theorem}[Theorème de l'énergie mécanique]
+    On a : 
+    \[
+        dE_{m} = \sum \vv{f}_{nc} \cdot d\vv{l}
+    \]
+    Soit : 
+    \[
+        \Delta E_{m} = E_{m}(t_{2}) - E_{m}(t_{1}) = \sum W^{\vv{f}_{nc}}_{t_{1} \to t_{2}}
+    \]
+    \begin{explanation}
+        D'après le théorème de l'énergie cinétique : 
+        \begin{eqnarray*}
+            dE_{c} &=& \sum \delta W^{\vv{f}} \\
+            &=& \sum \delta W^{\vv{f}_{c}} + \sum \delta W^{\vv{f}_{nc}} \\
+            &=& \sum \vv{f}_{c} \cdot d\vv{l} + \sum \vv{f}_{nc} \cdot d\vv{l} \\
+            &=& \sum (-dE_{p}) + \sum \vv{f}_{nc} \cdot d\vv{l} \\
+            \implies dE_{c} + \sum dE_{p} &=& \sum \vv{f}_{nc} \cdot d\vv{l} \\
+            dE_{m} = \sum \vv{f}_{nc} \cdot d\vv{l}
+        \end{eqnarray*}
+    \end{explanation}
+\end{theorem}
+
+\subsection{Equilibre et stabilité}
+\subsubsection{Raisonnement sur les forces}
+
+\begin{definition}[Position d'équilibre]
+    On se place dans un système à une dimension, décrit par une variable \(x\). La particule est à l'équilibre en un point \(x_{\text{0}}\) si elle reste en ce point lorsqu'elle y est déposée immobile. Il faut pour cela que \(\vv{v} = \vv{0}\) et \(\vv{a} = \vv{0}\) en \(x_{\text{0}}\).
+\end{definition}
+
+\begin{corollary}[Forces à l'équilibre]
+    Donc, d'après le PFD, on a : \(F_{x}(x_{\text{0}}) = 0\) où \(F_{x}(x_{0})\) est la résultante des forces en \(x_{\text{0}}\). 
+\end{corollary}
+
+\begin{definition}[Position d'équilibre stable]
+    Une position d'équilibre est dite stable si la particule à tendance à y revenir une fois écartée de celle-ci. 
+    %SCHEMA
+\end{definition}
+
+\begin{remark}[Force]
+    La force autour d'une position d'équilibre stable doit être une force de rappelle : 
+    \[
+        \frac{dF_{x}}{dx} <0
+    \]
+\end{remark}
+
+\subsubsection{Raisonnement sur l'énergie potentielle}
+
+\begin{theorem}[Energie potentielle et équilibre]
+    Si la force est conservative, alors on a : 
+    \[
+        F_{x} = - \frac{dE_{p}}{dx}
+    \]
+    Ainsi, la condition d'équilibre est donc : 
+    \[
+        \frac{dE_{p}}{dx} = 0
+    \]
+    Et la condition d'équilibre est : 
+    \[
+        \frac{d^{2}E_{p}}{dx^{2}} > 0
+    \]
+\end{theorem}
+
+\subsubsection{Exemples}
+
+\begin{theorem}[Développement limité]
+    \[
+        f(x) \approx f(x_{0}) + (x-x_{\text{0}})f'(x) + \frac{(x-x_{\text{0}})^{2}}{2!}f''(x)
+    \]
+\end{theorem}
+
+
+Ainsi on a au point d'équilibre : 
+\[
+    E_{p}(x) = E_{p}(x_{\text{0}}) + (x-x_{\text{0}}) \frac{dE_{p}}{dx}(x_{\text{0}}) + \frac{(x-x_{\text{0}})^{2}}{2} \frac{d^{2}E_{p}}{dx^{2}}(x_{\text{0}}) = E_{p}(x_{\text{0}}) + \frac{(x-x_{\text{0}})^{2}}{2} \frac{d^{2}E_{p}}{dx^{2}}(x_{\text{0}})
+\]
+
+On distingue trois cas en fonction du signe de \(\frac{d^{2}E_{p}}{dx^{2}}(x_{\text{0}})\). \par
+Cas 1 : \(\frac{d^{2}E_{p}}{dx^{2}} (x_{\text{0}}) >0\) on a un équilibre stable. \par
+%SCHEMA
+
+Cas 2 : \(\frac{d^{2}E_{p}}{dx^{2}} (x_{\text{0}})<0\), on a un équilibre instable. \par
+%Schema
+
+Cas 3 : \(\frac{d^{2}E_{p}}{dx^{2}} (x_{\text{0}})=0\), on a un équilibre indifférent. \par
+%SCHEMA
