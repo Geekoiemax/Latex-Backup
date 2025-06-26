@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Maxime Muller" />
+  <meta name="dcterms.date" content="2025-06-19" />
+  <title>Cinématique Relativiste</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Cinématique Relativiste</h1>
+<p class="author">Maxime Muller</p>
+<p class="date">2025-06-19</p>
+</header>
+<p>Ceci est une transcription des cours de cinématique relativiste donné
+par le professeur Xavier Ovido au lycée St Louis de Gonzague dans le
+cadre du club Phythème.</p>
+<h1 id="la-fin-de-lage-classique">La fin de l’age classique</h1>
+<p>A la fin du 19e siècle et au début du 20e, on trouve trois grandes
+théories.</p>
+<ul>
+<li><p>La mécanique de Newton</p></li>
+<li><p>L’électromagnétisme de Maxwell (électricité + magnétisme +
+optique)</p></li>
+<li><p>La thermodynamique</p></li>
+</ul>
+<h3 id="maxwell">Maxwell</h3>
+<p>Prédiction d’ondes électromagnétiques qui ont les même propriétés que
+la lumière et ont une vitese de propagation : <span
+class="math display">$$c = \frac{1}{\sqrt{\varepsilon_0 \mu_0}}$$</span>
+Avec :</p>
+<ul>
+<li><p><span class="math inline"><em>ε</em><sub>0</sub></span> :
+permittivité du vide</p></li>
+<li><p><span class="math inline"><em>μ</em><sub>0</sub></span> :
+perméabilité du vide</p></li>
+</ul>
+<h3 id="thermodynamique">Thermodynamique</h3>
+<p>Elle s’interesse aux machines thermiques et plus généralement aux
+échanges d’énergie.</p>
+<h2 id="la-vielle-mécanique-de-newton">La vielle mécanique de
+Newton</h2>
+<h3 id="la-première-loi-de-newton">La première loi de Newton</h3>
+<ul>
+<li><p>Aucun réferentiel absolu</p></li>
+<li><p>Pas de vitesse absolue</p></li>
+</ul>
+<h3 id="la-deuxième-loi-de-newton">La deuxième loi de Newton</h3>
+<p>Dans un réferentiel galiléen, on a : <span
+class="math display">$$\vec{f} = m \cdot
+\frac{d\vec{v}}{dt}$$</span></p>
+<p>La mécanique est basée sur un postulat fondamental, qui est le
+principe de relativité : Les lois de la mécanique sont les mêmes dans
+tous les réferentiels galiléen.<br />
+<br />
+</p>
+<p><u>Cinématique relativiste :</u><br />
+<span class="math display">$$\begin{cases}
+        t' = t         \\
+        x' = x - v_e t \\
+        y' = y         \\
+        z' = z
+    \end{cases}
+    \Leftrightarrow
+    \boxed{
+        \begin{cases}
+            t' = t \\
+            \vec{r'} = \vec{r} - \vec{v}_{e} t
+        \end{cases}
+    }$$</span> D’après le PFD :</p>
+<p><span class="math display">$$\begin{aligned}
+    \frac{d^2\vec{r}}{dt^2}   &amp; = \frac{1}{m} \cdot
+\vec{f}               \\
+    \intertext{et de même
+:}                                              \\
+    \frac{1}{m} \cdot \vec{f} &amp; =
+\frac{d^2\vec{r'}}{dt^2}                \\
+                              &amp; = \frac{d^2}{dt^2}(\vec{r} -
+\vec{v}_e t) \\
+                              &amp; =
+\frac{d^2\vec{r}}{dt^2}                 \\
+                              &amp; = \frac{1}{m} \cdot \vec{f}
+\end{aligned}$$</span></p>
+<p>La résultante des forces <span class="math inline"><em>f⃗</em></span>
+est la même dans les deux réferentiels.</p>
+<h3 id="la-troisième-loi-de-newton">La troisième loi de Newton</h3>
+<p><span
+class="math display"><em>f⃗</em><sub><em>i</em> ← <em>j</em></sub> = −<em>f⃗</em><sub><em>j</em> ← <em>i</em></sub></span>
+La vitesse de propagation des interactions est infinie.<br />
+</p>
+<h3 id="pourquoi-la-relativité-restreinte">Pourquoi la relativité
+restreinte?</h3>
+<p>L’électromagnétisme conduit à l’existence d’onde de vitesse <span
+class="math inline">$c = \frac{1}{\sqrt{\varepsilon_0
+\mu_0}}$</span>.<br />
+De plus, une particule électromagnétique subit une force qui est la
+force de Lorentz : <span class="math display">$$\begin{aligned}
+    \vec{f} &amp; = q \cdot (\vec{E} + \vec{v} \wedge \vec{B})       \\
+            &amp; = q \cdot \vec{E} + q \cdot \vec{v} \wedge \vec{B} \\
+            &amp; = \vec{F_e} + \vec{F_m}
+\end{aligned}$$</span></p>
+<p>Calculons <span class="math inline"><em>f</em><sup>′</sup></span> :
+<span class="math display">$$\begin{aligned}
+    \vec{f'} &amp; = q \cdot (\vec{E'} + \vec{v'} \wedge \vec{B'})  \\
+    \vec{f'} &amp; = q[\vec{E'}+ (\vec{v}-\vec{v_e})\wedge \vec{B}]
+\end{aligned}$$</span> Par identification :</p>
+<div class="center">
+
+</div>
+<p>La force de Lorenz n’est pas un invariant par transformation de
+Galilée.<br />
+Comment résoudre le problem?</p>
+<ol>
+<li><p>Admettre que la théorie de Maxwell est fausse (difficile, car
+elle explique et prédit plusiers phénomènes physiques)</p></li>
+<li><p>Rendre les particules de la mécanique classique et
+d’électromagnétisme compatibles en ajoutant des principes qui n’ont pas
+lieu d’être</p></li>
+<li><p>Admettre que les postulats de la mécanique classique sont
+faux</p></li>
+</ol>
+<h1 id="postulats-de-la-relativité-restreinte">Postulats de la
+Relativité restreinte</h1>
+<h2 id="premier-postulat">Premier postulat</h2>
+<p>Les lois de la physique ont la même forme dans tous les réferentiels
+d’inertie. <span
+class="math display"><em>Φ</em>(<em>x</em>, <em>y</em>, <em>z</em>, <em>t</em>) = <em>f</em>(<em>x</em>, <em>y</em>, <em>z</em>, <em>t</em>) ⇒ <em>Φ</em><sup>′</sup>(<em>x</em><sup>′</sup>, <em>y</em><sup>′</sup>, <em>z</em><sup>′</sup>, <em>t</em><sup>′</sup>) = <em>f</em>(<em>x</em><sup>′</sup>, <em>y</em><sup>′</sup>, <em>z</em><sup>′</sup>, <em>t</em><sup>′</sup>)</span></p>
+<h2 id="deuxième-postulat">Deuxième postulat</h2>
+<p>La vitesse de la lumière est la même dans tous les réferentiels
+d’inertie. On y ajoute le principe d’équivalence :<br />
+Pour <span class="math inline"><em>v</em> &lt;  &lt; <em>c</em></span>
+on retrouve les lois de Newton et les transformations de Galilée.<br />
+</p>
+<h1 id="evenements-et-transformations-spéciales-de-lorentz">Evenements
+et transformations spéciales de Lorentz</h1>
+<h2 id="evenements">Evenements</h2>
+<p><u>Def</u> : on appelle évènement un phénomène <span
+class="math inline"><em>ϕ</em></span> supposé infiniment localisé dans
+l’espace et le temps</p>
+<h3 id="coïncidence">Coïncidence</h3>
+<p>Deux évènements sont coincidents s’ils ont lieu au même endroit et au
+même moment. La coïncidence de deux évènements est un fait absolu,
+indépendant du réferentiel.</p>
+<h3 id="horloges-synchrones">Horloges Synchrones</h3>
+<p>Si pour tout <span
+class="math inline"><em>t</em><sub><em>a</em></sub></span> on a <span
+class="math inline">$t_b = t_a + \frac{AB}{c}$</span>, alors les
+horloges sont synchrones. Il s’agit d’un protocole pour synchroniser
+toutes les horloges dans un réferentiel donné.</p>
+<h3 id="evenements-simultanés">Evenements simultanés</h3>
+<p>Deux évenements sont simultanés s’ils ont lieux au même moment selon
+les horloges locales de A et de B préalablement sychronisées.<br />
+La simultanéité n’est pas un invariant par changement de
+réferentiel.</p>
+<h3 id="intervalle-entre-deux-évènements">Intervalle entre deux
+évènements</h3>
+<p>Soit : <span
+class="math inline">(<em>Δ</em><em>s</em>)<sup>2</sup> = <em>c</em><sup>2</sup>(<em>t</em> − <em>t</em><sup>′</sup>)<sup>2</sup> − [(<em>x</em> − <em>x</em><sup>′</sup>)<sup>2</sup> + (<em>y</em> − <em>y</em><sup>′</sup>)<sup>2</sup> + (<em>z</em> − <em>z</em><sup>′</sup>)<sup>2</sup>]</span>
+Si :</p>
+<ul>
+<li><p><span
+class="math inline">(<em>Δ</em><em>s</em>)<sup>2</sup> = 0 ⇒ Sur le cone
+de lumière</span></p></li>
+<li><p><span
+class="math inline">(<em>Δ</em><em>s</em>)<sup>2</sup> &gt; 0 ⇒ intevalle
+de temps</span></p></li>
+<li><p><span
+class="math inline">(<em>Δ</em><em>s</em>)<sup>2</sup> &gt; 0 ⇒ intervalle
+de temps</span></p></li>
+</ul>
+<p>On peut montrer que <span
+class="math inline">(<em>Δ</em><em>s</em>)<sup>2</sup></span> est un
+invariant scalaire par changement de réferentiel.</p>
+<h2 id="transformations-de-lorentz-1904">Transformations de Lorentz
+(1904)</h2>
+<h3 id="matrices-de-transformation">Matrices de transformation</h3>
+<p><span class="math display">$$\begin{pmatrix}
+        ct\\
+        x\\
+        y\\
+        z
+    \end{pmatrix}
+     = \begin{pmatrix}
+        \gamma &amp; \beta\gamma&amp;0&amp;0\\
+        \beta\gamma &amp; \gamma &amp;0&amp;0\\
+        0&amp;0&amp;1&amp;0\\
+        0&amp;0&amp;0&amp;1\\
+     \end{pmatrix}
+     \begin{pmatrix}
+        ct'\\
+        x'\\
+        y'\\
+        z'
+    \end{pmatrix}$$</span><br />
+<br />
+<span class="math inline">$\text{Avec : } \gamma =
+\frac{1}{\sqrt{1-\beta^2}} \text{ et } \beta = \frac{v}{c}$</span> Pour
+passer du réferentiel R’ à R, il suffit de remplacer <span
+class="math inline"><em>v</em></span> par <span
+class="math inline">−<em>v</em></span> <span
+class="math display">$$\begin{pmatrix}
+        ct'\\
+        x'\\
+    \end{pmatrix}
+     = \begin{pmatrix}
+        \gamma&amp;-\beta\gamma\\
+        -\beta\gamma&amp;\gamma
+     \end{pmatrix}
+     \begin{pmatrix}
+        ct\\
+        x
+     \end{pmatrix}$$</span> <span class="math inline">$v&lt;&lt;c
+\Rightarrow \beta&lt;&lt;1 \text{ et } \gamma \rightarrow 1\\
+    \begin{cases}
+        ct' &amp;= \gamma(ct - \beta x)\\
+        &amp;\approx ct\\
+        t'&amp;=t
+    \end{cases}\\
+    x' = \gamma(x - \beta ct) \approx x-vt$</span><br />
+<span class="math inline">⇒</span> On retrouve les transformations de
+Galilée</p>
+<h3 id="transformations-des-vitesses">Transformations des vitesses</h3>
+<p>On a : <span class="math inline">$v'_x =
+\frac{dx'}{dt'}$</span><br />
+Or :<br />
+<span class="math display">$$\begin{cases}
+    dx' &amp;= \gamma(dx - \beta c dt)\\
+    cdt' &amp;= \gamma(cdt - \beta dx)
+\end{cases}$$</span> <span class="math display">$$\begin{aligned}
+    \Rightarrow \frac{1}{c} \frac{dx'}{dt'} &amp;=&amp; \frac{\gamma(dx
+- \beta c dt)}{\gamma(cdt - \beta dx)}\\
+    &amp;=&amp; \frac{dt(\frac{dx}{dt} - v)}{cdt (1-
+\frac{v}{c^2}\frac{dx}{dt})}\\
+    &amp;=&amp; \frac{1}{c} \frac{v_x - v}{1 - \frac{v_x \cdot
+v}{c^2}}\\
+    \Rightarrow v'_x&amp;=&amp; \frac{v_x - v}{1 - \frac{v_x \cdot
+v}{c^2}}
+\end{aligned}$$</span> Si <span
+class="math inline"><em>v</em><sub><em>x</em></sub> = <em>c</em></span>
+<span class="math display">$$v'_x = \frac{c-v}{1- \frac{c-v}{c^2}} =
+(c-v) \cdot \frac{c^2}{c^2 - cv} = \frac{c^2}{c} = c$$</span> Donc la
+vitesse de la lumière est un invariant par rapport au réferentiel.<br />
+Si <span
+class="math inline"><em>v</em><sub><em>x</em></sub> &lt;  &lt; <em>c</em></span><br />
+alors <span class="math inline">$\frac{v_x}{c}&lt;&lt;1$</span>, on
+trouve <span
+class="math inline"><em>v</em><sup>′</sup><em>x</em> ≈ <em>v</em><sub><em>x</em></sub> − <em>v</em></span>
+(Le terme <span class="math inline">$\frac{v_x\cdot v}{c^2}$</span> est
+négligeable dans la formule)<br />
+<span class="math inline">→</span> On retrouve la loi classique de
+transformation.</p>
+<h1 id="temps-propre-et-dilatation-des-durées">Temps propre et
+dilatation des durées</h1>
+<p><u>Def</u> : L’intervalle de temps propre est l’intervalle de temps
+séparant deux horloges dans le réferentiel R’ dans lequelle les horloges
+sont aux repos. <span class="math display"></span> <span
+class="math display">$$\begin{aligned}
+    &amp;ct = \gamma(ct'+\beta x')\\
+    \intertext{Si H est au Repos dans R' :}\\
+    &amp;\Rightarrow \Delta x' = 0\\
+    &amp;\Rightarrow c\Delta t = c\gamma\Delta t'\\
+    &amp;\Rightarrow \Delta t = \gamma \Delta t'\\
+    &amp;\text{Or : } \gamma = \frac{1}{\sqrt{1-\beta^2}} \geq 1
+\end{aligned}$$</span> <span class="math inline">⇒</span> Dans R, il y a
+dilatation des durées par rapport au réferentiel propre R<br />
+<u>Remarque</u> : On peut le montrer aussi avec <span
+class="math inline">(<em>Δ</em><em>s</em>)<sup>2</sup></span><br />
+<span class="math display">$$\begin{aligned}
+    ds^2 &amp;= c^2 d\tau^2 \text{       (où $d\tau$ est le temps
+propre)}\\
+    &amp;= c^2 dt^2 -(dx^2 +dy^2 + dz^2)\\
+    &amp;= c^2 dt^2 (1-\frac{dx^2+dy^2+dz^2}{c^2dt^2})\\
+    &amp;= c^2 dt^2(1-\frac{1}{c^2}(\frac{d\vec{r}}{dt})^2)\\
+    &amp;=c^2dt^2 (1-\beta^2)\\
+    &amp;\Rightarrow d\tau^2 = \frac{dt^2}{\gamma^2} \Leftrightarrow dt
+= \gamma d\tau
+\end{aligned}$$</span></p>
+<h1 id="longueurs-propres-et-contraction-des-longueurs">Longueurs
+propres et contraction des longueurs</h1>
+<p><u>Définition</u> : La longueur propre d’un objet est égale à la
+longueur de l’objet mesuré dans le réferentiel où l’objet est
+immobile.<br />
+Pour l’observateur dans R :<br />
+<span class="math display">$$\begin{cases}
+    x_2' = \gamma(x_2 - \beta ct) \\
+    x_1' = \gamma(x_1 - \beta ct)
+\end{cases}$$</span> <span
+class="math display"> ⇒ <em>L</em><sup>′</sup> = <em>x</em><sub>2<sup>′</sup></sub> − <em>x</em><sub>1<sup>′</sup></sub> = <em>γ</em>(<em>x</em><sub>2</sub> − <em>x</em><sub>1</sub>) = <em>γ</em><em>L</em></span>
+Dans R, il y a une contrastion des longueurs (car <span
+class="math inline"><em>γ</em> ≥ 1</span>)<br />
+<u>Conséquences</u> :<br />
+Les volumes subissent eux aussi une contraction :<br />
+<span
+class="math inline"><em>d</em><em>V</em><sub>0</sub> = <em>d</em><em>x</em><sub>0</sub><em>d</em><em>y</em><sub>0</sub><em>d</em><em>z</em><sub>0</sub></span>
+est le volume propre<br />
+Pour un mouvement selon <span
+class="math inline"><em>O</em><sub><em>x</em></sub></span> : <span
+class="math display">$$dV = dxdydz = \frac{dx_0}{\gamma}dy_0dz_0 =
+\sqrt{1-\beta^2}dV_0$$</span> Or la charge est un invariant relativiste,
+on a donc : <span class="math display">$$\rho = \frac{dq}{dV} = \gamma
+\frac{dq}{dV_0} = \gamma \rho_0$$</span></p>
+<h1 id="notion-de-quadrivecteur">Notion de quadrivecteur</h1>
+<p><u>Définition</u> : 4 quantités <span
+class="math inline"><em>A</em><sub>1</sub>; <em>A</em><sub>2</sub>; <em>A</em><sub>3</sub>; <em>A</em><sub>4</sub></span>
+sont les composantes d’un quadrivecteur <span
+class="math inline"><em>Ã</em></span> si vis à vis d’un changement de
+réferentiel galiléen, elles de tranforment de la même manière que les
+composantes du quadrivecteur <span class="math inline">$\tilde{OM} =
+(ct;\vec{r})$</span><br />
+Si R et R’ sont dans les conditions de la transformation de Lorenz, la
+transformation de <span class="math inline"><em>Ã</em></span> est régi
+par la matrice de Lorenz.<br />
+<u>Définition</u> : On définit la pseudonorme du 4-vecteur <span
+class="math inline"><em>Ã</em></span> comme suit: <span
+class="math display">$$\text{Soit } \tilde{A}\begin{pmatrix}
+A_0\\A_1\\A_2\\A_3 \end{pmatrix}, \space  \tilde{A} \cdot \tilde{A} =
+A_0^2 -(A_1^2 +A_2^2 +A_3^2)    
+.$$</span> On peut avoir <span
+class="math inline"><em>Ã</em> ⋅ <em>Ã</em></span> positif ou
+négatif.<br />
+<u>Exemple</u> : Dans (R): <span class="math inline">$\tilde{OM} :
+(ct;\vec{OM})$</span> et <span
+class="math inline"><em>d</em><em>t</em> = <em>γ</em><em>d</em><em>τ</em></span>
+avec <span class="math inline">$\gamma =
+\frac{1}{\sqrt{1-\frac{v^2}{c^2}} }$</span>.<br />
+De façon évidente : <span class="math inline">$\tilde{v} =
+\frac{d\tilde{OM}}{d\tau}$</span><br />
+<span class="math display">$$\tilde{v} = \frac{d\tilde{OM}}{d\tau} =
+\frac{d\tilde{OM}}{dt} \cdot \frac{dt}{d\tau}
+.$$</span> Or : <span class="math inline">$\frac{dt}{d\tau} =
+\gamma$</span> et <span class="math inline">$d\tilde{OM} =
+(cdt;d\vec{OM})$</span> <span class="math display">$$\implies \tilde{v}
+= \gamma (c\space;\frac{d\vec{OM}}{dt}) \text{ et } \tilde{v} \cdot
+\tilde{v} = \gamma (c^2 -v^2) = \frac{c^2 }{c^2 -v^2 } (c^2 -v^2) = c^2
+\text{ Invariant } \square
+.$$</span></p>
+</body>
+</html>

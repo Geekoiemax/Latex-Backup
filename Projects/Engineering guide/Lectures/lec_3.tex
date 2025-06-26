@@ -1,0 +1,51 @@
+\chapter{Learning, how do you master the tools in order to make the best car possible?}
+
+\textcolor{red}{\underline{\textbf{Work in progress, this section is still being written and is not final.}}}
+
+\section{Fusion 360 : 3d modelling}
+
+So you’ve read through the regulations and understand them and you’ve drawn up some sketches of how you want the car to look like. Now you have to design a 3d model of your ideas. When you open Fusion, there are three ways you can design the parts of your car. Each design method has its advantages, its disadvantages and thus, different components of the car will probably be designed with different tools. In this part, I will give a quick overview of each design method as well as other resources to master them and contacts in case you have questions.
+
+\subsection{Solid design}
+The first way to design is solid design. Solid design works in three steps : sketch, extrude and modify. Solid design is mostly useful for parts that evolve in one direction or are bounded by flat surfaces. 
+
+\subsubsection{Sketch}
+Sketch is the first step in designing a component through solid design. Sketching is, as the name suggests, creating a drawing that will be the basis of the solid you are designing. The sketch is usually the flatest side or it is normal to the direction in which the solid is the longest. To create a new sketch, press the create a sketch button and choose a plane on which to draw your sketch. You can then draw shapes by either using the shape tools, projecting an already existing body or with lines that you connect to a loop. Just make sure you have a closed shape (visualised with blue shading) or else you won’t have anything to extrude. When drawing a line, if you want it to be a specific length/angle, press tab and enter your desired constraints. You can also name constraints to use them later if you need multiple sides to be the same length for example. You can also modify certain parameters of your sketch such as making points automatically snap or not or making it a 3d sketch if you want.
+
+\subsubsection{Extrude}
+
+Once you have finished your sketches, it is time to turn them into solids by giving them another dimension. There are many ways to do this, I’ll go through two of them : extrude and loft. \par
+
+The easiest way to turn your sketch in a body is the extrude tool. To use the extrude tool, select one or multiple faces that you want to turn into bodies and select the extrude tool. Once there, you can extrude in one direction or both. The last part is choosing what to do with the extrusion. You can of course turn it into a new body or component but you can also join it to another body or use it to cut into another body. \par
+
+Another way to turn a sketch into a solid when you have multiple sketches you want to link together is the loft tool. The loft tool serves to link faces together with a body. To use the loft tool, select it and then select the faces you want to loft together. If you want to use a face that is split with a line, make sure to select the two faces one after another so the tool doesn’t try to loft adjacent faces. You can also select intermediate faces that serve as a checkpoint that the loft tool must respect. Finally, you can set rails and centerlines that the tool will follow but these aren't mandatory. \par
+
+Keep in mind that there is a lot you can do to turn planes into bodies. There is more nuance to the tools, especially the loft tool that you can play around with. Furthermore, there are many other tools that can turn a plane into a body such as the revolve or sweep tools. Each tool has its own use case so make sure to explore them all in order to be able to efficiently tackle any design challenges you might face. \par
+
+\subsubsection{Modify}
+
+Once you have your base body (created with extrude, loft or another tool) you will want to refine it. To do so, you have a multitude of tools at your disposal such as filet, pull or push as well as face deletion. Each body needing its own refinements as well as each tool being different to use, here is a list of some of the more useful refinement tool we used and what they do : 
+
+\begin{itemize}
+    \item Filet : rounds out edges and corners
+    \item Delete face : as the name implies, deletes faces and attempts to repair the body so that you keep a solid and you don’t get a surface body. \textbf{DOES NOT ALWAYS WORK}.
+\end{itemize}
+
+\subsection{Freeform modeling}
+
+Freeform modelling in Fusion 360 lets you sculpt organic shapes using a T-spline–based “Form” environment. It’s useful for parts with smooth, flowing surfaces or ergonomic shapes that aren’t easily defined by flat planes. Like solid design, freeform follows a few main steps: entering the Form workspace to create a base shape, editing the form to refine the volume, and then finishing by converting to a solid or integrating with other geometry.
+
+\subsubsection{Create Form}
+To start sculpting, switch to the Form (also called Sculpt) workspace and click “Create Form.” Choose a primitive (box, cylinder, sphere, or pipe) as your starting block. The primitive’s faces, edges, and vertices define a T-spline lattice you can manipulate. Pick a plane or existing face to attach the form if needed. Keep in mind that the initial shape should roughly match the overall volume or profile you want to achieve, since drastic changes later can become harder to manage.
+
+\subsubsection{Edit Form}
+With the form created, use tools like Edit Form (push/pull), Insert Edge, Insert Point, and Crease to shape it. Select faces or edges and drag to adjust curvature; press and hold modifiers (e.g., Alt/Option) to move individual vertices or entire edge loops. Use symmetry options early to ensure the model stays balanced. You can also add supporting geometry by inserting edge loops where you need sharper transitions or more control. The “Tweak” handles appear when you select sub-entities—drag them to refine thickness or curvature. Keep checking smoothness and flow by observing how surface highlights move across the form.
+
+\subsubsection{Finish Form}
+Once the sculpt is close to the desired shape, click “Finish Form” to convert the T-spline into a solid or surface body. You can then use solid-modelling tools—Combine, Fillet, Shell, or Boolean operations—to integrate the sculpt with other parts. If needed, split faces or use Patch tools to repair surfaces before conversion. Finally, apply appearances or prepare the model for manufacturing or rendering. Remember that freeform works best when you plan the general silhouette first, then iteratively refine details, leveraging symmetry and edge control to balance smoothness with any necessary sharp features.
+
+\subsection{Generative Design}
+
+Generative design in Fusion 360 uses cloud-powered algorithms to explore hundreds (even thousands) of design alternatives based on your functional requirements. Instead of manually sketching and extruding or sculpting form, you define goals and constraints, let Fusion iterate automatically, then choose and refine the best solution. It’s ideal for lightweight structures, organic lattices, and designs that balance competing performance criteria. \par
+
+Having not used generative design throughout the competition, I am not in a position to teach you about the tool. Furthermore, because of there being a prize depending on your mastery of the too, it could be considered unfair to give you a headstart. Thus, I encourage you to explore the tools yourselves and come to me with any questions. Have fun!!
